@@ -1,0 +1,6 @@
+@mobileBackendsoftFount_HostAddress = http://localhost:5187
+
+GET {{mobileBackendsoftFount_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
