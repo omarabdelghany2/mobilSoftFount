@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using mobileBackendsoftFount.Data;
@@ -11,9 +12,11 @@ using mobileBackendsoftFount.Data;
 namespace mobileBackendsoftFount.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250224130434_AddBenzeneBuyReceipt")]
+    partial class AddBenzeneBuyReceipt
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -74,9 +77,6 @@ namespace mobileBackendsoftFount.Migrations
                     b.Property<DateTime>("MobilReceiptDate")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<float>("TotalValue")
-                        .HasColumnType("real");
-
                     b.HasKey("Id");
 
                     b.ToTable("BenzeneBuyReceipts");
@@ -130,9 +130,6 @@ namespace mobileBackendsoftFount.Migrations
                     b.Property<float>("Amount")
                         .HasColumnType("real");
 
-                    b.Property<int>("BenzeneBuyReceiptId")
-                        .HasColumnType("integer");
-
                     b.Property<float>("EvaporationPercentage")
                         .HasColumnType("real");
 
@@ -142,18 +139,7 @@ namespace mobileBackendsoftFount.Migrations
                     b.Property<float>("Taxes")
                         .HasColumnType("real");
 
-                    b.Property<float>("TotalValue")
-                        .HasColumnType("real");
-
-                    b.Property<float>("ValueOfEvaporation")
-                        .HasColumnType("real");
-
-                    b.Property<float>("ValueOfTaxes")
-                        .HasColumnType("real");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("BenzeneBuyReceiptId");
 
                     b.ToTable("BenzeneRecipeProducts");
                 });
@@ -214,22 +200,6 @@ namespace mobileBackendsoftFount.Migrations
                     b.HasOne("mobileBackendsoftFount.Models.SellingReceipt", null)
                         .WithMany("BenzeneGunCounters")
                         .HasForeignKey("SellingReceiptId");
-                });
-
-            modelBuilder.Entity("mobileBackendsoftFount.Models.BenzeneRecipeProduct", b =>
-                {
-                    b.HasOne("mobileBackendsoftFount.Models.BenzeneBuyReceipt", "BenzeneBuyReceipt")
-                        .WithMany("Products")
-                        .HasForeignKey("BenzeneBuyReceiptId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("BenzeneBuyReceipt");
-                });
-
-            modelBuilder.Entity("mobileBackendsoftFount.Models.BenzeneBuyReceipt", b =>
-                {
-                    b.Navigation("Products");
                 });
 
             modelBuilder.Entity("mobileBackendsoftFount.Models.SellingReceipt", b =>

@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using mobileBackendsoftFount.Data;
@@ -11,9 +12,11 @@ using mobileBackendsoftFount.Data;
 namespace mobileBackendsoftFount.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250224135803_AddBenzeneRecipeProductRelation")]
+    partial class AddBenzeneRecipeProductRelation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -73,9 +76,6 @@ namespace mobileBackendsoftFount.Migrations
 
                     b.Property<DateTime>("MobilReceiptDate")
                         .HasColumnType("timestamp with time zone");
-
-                    b.Property<float>("TotalValue")
-                        .HasColumnType("real");
 
                     b.HasKey("Id");
 
@@ -140,15 +140,6 @@ namespace mobileBackendsoftFount.Migrations
                         .HasColumnType("real");
 
                     b.Property<float>("Taxes")
-                        .HasColumnType("real");
-
-                    b.Property<float>("TotalValue")
-                        .HasColumnType("real");
-
-                    b.Property<float>("ValueOfEvaporation")
-                        .HasColumnType("real");
-
-                    b.Property<float>("ValueOfTaxes")
                         .HasColumnType("real");
 
                     b.HasKey("Id");

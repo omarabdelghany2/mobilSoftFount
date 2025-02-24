@@ -6,15 +6,12 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// 🔹 Add PostgreSQL Database Connection
+// 🔹 Configure PostgreSQL Database Connection
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(connectionString)
            .EnableSensitiveDataLogging(false)  // Disable logging of sensitive data
-           .LogTo(Console.WriteLine, new[] { DbLoggerCategory.Database.Command.Name }, LogLevel.None) // Completely disable SQL logs
 );
-
-
 
 // 🔹 Configure JWT Authentication
 var key = Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]);
@@ -36,16 +33,22 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     });
 
 builder.Services.AddAuthorization();
+
+// 🔹 Configure Controllers & JSON Serialization
+builder.Services.AddControllers()
+    .AddNewtonsoftJson(options =>
+    {
+        options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+        options.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.None; // ✅ Remove $id
+    });
+
+// 🔹 Add Swagger for API documentation
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddControllers();  // ✅ Add controllers
-
-builder.Services.AddEndpointsApiExplorer(); // ✅ Required for Swagger
-builder.Services.AddSwaggerGen(); 
-
 var app = builder.Build();
 
+// 🔹 Enable Swagger in Development Mode
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -55,13 +58,14 @@ if (app.Environment.IsDevelopment())
 // app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
-app.MapControllers();  // ✅ This is required!
+app.MapControllers();  // ✅ Ensure controllers are mapped
+
 // 🔹 Ensure the database is created if it doesn't exist
 using (var scope = app.Services.CreateScope())
 {
     var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-    dbContext.Database.EnsureCreated();  // 🔹 This will create the database if it doesn't exist
+    dbContext.Database.EnsureCreated();  // ✅ Creates the database if not already present
 }
 
-// Run the application
+// 🔥 Run the application
 app.Run();

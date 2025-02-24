@@ -143,3 +143,8 @@
 /Users/omarabdelghany/Documents/mobile/mobileBackendsoftFount/obj/Debug/net8.0/mobileBackendsoftFount.pdb
 /Users/omarabdelghany/Documents/mobile/mobileBackendsoftFount/obj/Debug/net8.0/mobileBackendsoftFount.genruntimeconfig.cache
 /Users/omarabdelghany/Documents/mobile/mobileBackendsoftFount/obj/Debug/net8.0/ref/mobileBackendsoftFount.dll
+/Users/omarabdelghany/Documents/mobile/mobileBackendsoftFount/obj/Debug/net8.0/mobileBackendsoftFount.sourcelink.json
+/Users/omarabdelghany/Documents/mobile/mobileBackendsoftFount/bin/Debug/net8.0/Microsoft.AspNetCore.JsonPatch.dll
+/Users/omarabdelghany/Documents/mobile/mobileBackendsoftFount/bin/Debug/net8.0/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+/Users/omarabdelghany/Documents/mobile/mobileBackendsoftFount/bin/Debug/net8.0/Newtonsoft.Json.dll
+/Users/omarabdelghany/Documents/mobile/mobileBackendsoftFount/bin/Debug/net8.0/Newtonsoft.Json.Bson.dll
