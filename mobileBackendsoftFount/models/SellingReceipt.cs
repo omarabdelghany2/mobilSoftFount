@@ -15,7 +15,13 @@ namespace mobileBackendsoftFount.Models
         // 🔹 List of BenzeneGunCounters
         public List<BenzeneGunCounter> BenzeneGunCounters { get; set; } = new List<BenzeneGunCounter>();
 
-        public long TotalSold92 { get; set; }
-        public long TotalSold95 { get; set; }
+        public long TotalLiter92 { get; set; }
+        public long TotalLiter95 { get; set; }
+
+        public long TotalMoney92{get; set; }
+        public long TotalMoney95{get; set; }
+
+        public long TotalMoney{get; set; }
+
     }
 }

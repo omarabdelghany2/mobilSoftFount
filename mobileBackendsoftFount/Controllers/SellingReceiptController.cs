@@ -41,12 +41,17 @@ namespace mobileBackendsoftFount.Controllers
                     return NotFound($"Gun with number {gunCounterRequest.GunNumber} not found.");
                 }
 
+                // 🔹 Calculate total sold before updating counters
                 long totalSold = gunCounterRequest.EndRoundThreeCount - existingCounter.EndRoundThreeCount;
 
+                // 🔹 Update counter values
                 existingCounter.StartCount = existingCounter.EndRoundThreeCount;
                 existingCounter.EndRoundOneCount = gunCounterRequest.EndRoundOneCount;
                 existingCounter.EndRoundTwoCount = gunCounterRequest.EndRoundTwoCount;
                 existingCounter.EndRoundThreeCount = gunCounterRequest.EndRoundThreeCount;
+
+                // 🔹 Ensure total sold is updated
+                existingCounter.TotalSold = totalSold;
 
                 if (existingCounter.BenzeneType == "92")
                     total92 += totalSold;
@@ -55,19 +60,38 @@ namespace mobileBackendsoftFount.Controllers
 
                 updatedCounters.Add(existingCounter);
             }
+
+            // 🔹 Fetch the Benzene price from the database
+            var benzene92 = await _context.Benzenes.FirstOrDefaultAsync(b => b.Name == "92");
+            var benzene95 = await _context.Benzenes.FirstOrDefaultAsync(b => b.Name == "95");
+
+            if (benzene92 == null || benzene95 == null)
+            {
+                return BadRequest("Benzene pricing information is missing.");
+            }
+
+            // 🔹 Calculate total money
+            long totalMoney92 = total92 * (long)benzene92.PriceOfSelling;
+            long totalMoney95 = total95 * (long)benzene95.PriceOfSelling;
+            long totalMoney = totalMoney92 + totalMoney95;
+
             request.Date = DateTime.SpecifyKind(request.Date, DateTimeKind.Utc);
+
             var newReceipt = new SellingReceipt
             {
-                Date = request.Date,// Ensure the date has no time
+                Date = request.Date, // Ensure the date has no time
                 BenzeneGunCounters = updatedCounters,
-                TotalSold92 = total92,
-                TotalSold95 = total95
+                TotalLiter92 = total92,
+                TotalLiter95 = total95,
+                TotalMoney92 = totalMoney92,
+                TotalMoney95 = totalMoney95,
+                TotalMoney = totalMoney
             };
 
             _context.SellingReceipts.Add(newReceipt);
             await _context.SaveChangesAsync();
 
-            // 🔹 Return date in "YYYY-MM-DD" format
+            // 🔹 Return response with properly calculated values
             return CreatedAtAction(nameof(GetSellingReceiptByDate), new { date = inputDate }, new
             {
                 id = newReceipt.Id,
@@ -81,10 +105,13 @@ namespace mobileBackendsoftFount.Controllers
                     g.EndRoundThreeCount,
                     g.BenzeneType,
                     g.GunNumber,
-                    g.TotalSold
+                    totalSold = g.TotalSold // ✅ Now correctly returns calculated totalSold
                 }),
-                totalSold92 = newReceipt.TotalSold92,
-                totalSold95 = newReceipt.TotalSold95
+                totalLitre92 = newReceipt.TotalLiter92,
+                totalLitre95 = newReceipt.TotalLiter95,
+                totalMoney92 = newReceipt.TotalMoney92,
+                totalMoney95 = newReceipt.TotalMoney95,
+                totalMoney = newReceipt.TotalMoney
             });
         }
 

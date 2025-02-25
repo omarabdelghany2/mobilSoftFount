@@ -11,6 +11,7 @@ public class ApplicationDbContext : DbContext
 
     public DbSet<User> Users { get; set; }
     public DbSet<Benzene> Benzenes{get;set; }
+    
     public DbSet<BenzeneGunCounter> BenzeneGunCounters{ get; set; } 
     public DbSet<SellingReceipt> SellingReceipts { get; set; }
     public DbSet<BenzeneBuyReceipt> BenzeneBuyReceipts { get; set; } // New model
@@ -23,6 +24,14 @@ public class ApplicationDbContext : DbContext
             .WithMany(r => r.Products)
             .HasForeignKey(p => p.BenzeneBuyReceiptId) // Now it exists!
             .OnDelete(DeleteBehavior.Cascade); // Ensures products are deleted with the receipt
+
+
+
+
+
+        modelBuilder.Entity<Benzene>()
+            .HasIndex(b => b.Name)
+            .IsUnique(); // 🔹 Ensure unique Name    
     }
 
 

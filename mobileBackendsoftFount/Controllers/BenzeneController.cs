@@ -23,6 +23,11 @@ namespace mobileBackendsoftFount.Controllers
         [HttpPost("create")]
         public async Task<IActionResult> CreateBenzene([FromBody] Benzene benzene)
         {
+
+            if (_context.Benzenes.Any(b => b.Name == benzene.Name))
+            {
+                return BadRequest(new { message = "Benzene name must be unique" });
+            }
             _context.Benzenes.Add(benzene);
             await _context.SaveChangesAsync();
             return Ok(new { message = "Benzene record created successfully", benzene });

@@ -9,7 +9,7 @@ namespace mobileBackendsoftFount.Models
         public long EndRoundThreeCount { get; set; }
         public string BenzeneType { get; set; } // Benzene name as a string
         public int GunNumber { get; set; } // New field added
-        public long TotalSold => EndRoundThreeCount - StartCount;
+        public long TotalSold { get; set; } // New field added
 
         
     }
