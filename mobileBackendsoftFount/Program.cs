@@ -34,6 +34,17 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 builder.Services.AddAuthorization();
 
+// 🔹 Enable CORS to allow external access
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll",
+        builder => builder
+            .AllowAnyOrigin()  // ⬅️ Allow all clients (Postman, browsers, other servers)
+            .AllowAnyMethod()  // ⬅️ Allow GET, POST, PUT, DELETE, etc.
+            .AllowAnyHeader()  // ⬅️ Allow all headers
+    );
+});
+
 // 🔹 Configure Controllers & JSON Serialization
 builder.Services.AddControllers()
     .AddNewtonsoftJson(options =>
@@ -47,6 +58,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
+// 🔹 Enable CORS Middleware
+app.UseCors("AllowAll");
 
 // 🔹 Enable Swagger in Development Mode
 if (app.Environment.IsDevelopment())
@@ -67,5 +81,5 @@ using (var scope = app.Services.CreateScope())
     dbContext.Database.EnsureCreated();  // ✅ Creates the database if not already present
 }
 
-// 🔥 Run the application
-app.Run();
+// 🔥 Run the application & listen on all network interfaces
+app.Run("http://*:5187");  // ⬅️ Allows access from Postman & external devices

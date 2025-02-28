@@ -22,17 +22,18 @@ public class ApplicationDbContext : DbContext
         modelBuilder.Entity<BenzeneRecipeProduct>()
             .HasOne(p => p.BenzeneBuyReceipt)
             .WithMany(r => r.Products)
-            .HasForeignKey(p => p.BenzeneBuyReceiptId) // Now it exists!
-            .OnDelete(DeleteBehavior.Cascade); // Ensures products are deleted with the receipt
-
-
-
-
+            .HasForeignKey(p => p.BenzeneBuyReceiptId)
+            .OnDelete(DeleteBehavior.Cascade);
 
         modelBuilder.Entity<Benzene>()
             .HasIndex(b => b.Name)
-            .IsUnique(); // 🔹 Ensure unique Name    
+            .IsUnique(); // 🔹 Ensure Benzene.Name is unique  
+
+        modelBuilder.Entity<SellingReceipt>()
+            .HasIndex(r => r.Date)
+            .IsUnique(); // 🔹 Ensure SellingReceipt.Date is unique  
     }
+
 
 
     

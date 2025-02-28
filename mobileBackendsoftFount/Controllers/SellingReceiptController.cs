@@ -8,7 +8,7 @@ namespace mobileBackendsoftFount.Controllers
 {
     [Route("api/sellingReceipt")]
     [ApiController]
-    [Authorize(Roles = "Admin")]  // 🔹 Restrict access to admins only
+    // [Authorize(Roles = "Admin")]  // 🔹 Restrict access to admins only
     public class SellingReceiptController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
@@ -81,11 +81,12 @@ namespace mobileBackendsoftFount.Controllers
             {
                 Date = request.Date, // Ensure the date has no time
                 BenzeneGunCounters = updatedCounters,
-                TotalLiter92 = total92,
-                TotalLiter95 = total95,
+                TotalLitre92 = total92,
+                TotalLitre95 = total95,
                 TotalMoney92 = totalMoney92,
                 TotalMoney95 = totalMoney95,
-                TotalMoney = totalMoney
+                TotalMoney = totalMoney,
+                OpenAmount = request.OpenAmount  // ✅ Set OpenAmount from request
             };
 
             _context.SellingReceipts.Add(newReceipt);
@@ -107,8 +108,8 @@ namespace mobileBackendsoftFount.Controllers
                     g.GunNumber,
                     totalSold = g.TotalSold // ✅ Now correctly returns calculated totalSold
                 }),
-                totalLitre92 = newReceipt.TotalLiter92,
-                totalLitre95 = newReceipt.TotalLiter95,
+                totalLitre92 = newReceipt.TotalLitre92,
+                totalLitre95 = newReceipt.TotalLitre95,
                 totalMoney92 = newReceipt.TotalMoney92,
                 totalMoney95 = newReceipt.TotalMoney95,
                 totalMoney = newReceipt.TotalMoney
@@ -156,14 +157,98 @@ namespace mobileBackendsoftFount.Controllers
 
             return Ok(receipts);
         }
-    }
+
+        // [HttpPut("update/{date}")]
+        // public async Task<IActionResult> UpdateSellingReceiptByDate(DateTime date, [FromBody] SellingReceiptRequest request)
+        // {
+        //     if (request == null || request.BenzeneGunCounters == null || request.BenzeneGunCounters.Count == 0)
+        //         return BadRequest("Invalid input data.");
+
+        //     // 🔹 Ensure input date is UTC
+        //     var inputDate = DateTime.SpecifyKind(date.Date, DateTimeKind.Utc);
+
+        //     var existingReceipt = await _context.SellingReceipts
+        //         .Include(r => r.BenzeneGunCounters)
+        //         .FirstOrDefaultAsync(r => r.Date == inputDate);
+
+        //     if (existingReceipt == null)
+        //         return NotFound("No selling receipt found for this date.");
+
+        //     // 🔹 Ensure request.Date is explicitly set to UTC
+        //     request.Date = DateTime.SpecifyKind(request.Date, DateTimeKind.Utc);
+
+        //     bool dateExists = await _context.SellingReceipts
+        //         .AnyAsync(r => r.Date.Date == request.Date.Date && r.Date.Date != inputDate);
+
+        //     if (dateExists)
+        //         return Conflict("A selling receipt already exists for this new date.");
+
+        //     long total92 = 0, total95 = 0;
+        //     var updatedCounters = new List<BenzeneGunCounter>();
+
+        //     await using var transaction = await _context.Database.BeginTransactionAsync();
+
+        //     foreach (var gunCounterRequest in request.BenzeneGunCounters)
+        //     {
+        //         var existingCounter = await _context.BenzeneGunCounters
+        //             .FirstOrDefaultAsync(g => g.GunNumber == gunCounterRequest.GunNumber);
+
+        //         if (existingCounter == null)
+        //             return NotFound($"Gun with number {gunCounterRequest.GunNumber} not found.");
+
+        //         long totalSold = gunCounterRequest.EndRoundThreeCount - existingCounter.EndRoundThreeCount;
+        //         if (totalSold < 0) return BadRequest($"Invalid counter values for Gun {gunCounterRequest.GunNumber}.");
+
+        //         existingCounter.StartCount = existingCounter.EndRoundThreeCount;
+        //         existingCounter.EndRoundOneCount = gunCounterRequest.EndRoundOneCount;
+        //         existingCounter.EndRoundTwoCount = gunCounterRequest.EndRoundTwoCount;
+        //         existingCounter.EndRoundThreeCount = gunCounterRequest.EndRoundThreeCount;
+        //         existingCounter.TotalSold = totalSold;
+
+        //         if (existingCounter.BenzeneType == "92") total92 += totalSold;
+        //         if (existingCounter.BenzeneType == "95") total95 += totalSold;
+
+        //         updatedCounters.Add(existingCounter);
+        //     }
+
+        //     var benzene92 = await _context.Benzenes.FirstOrDefaultAsync(b => b.Name == "92");
+        //     var benzene95 = await _context.Benzenes.FirstOrDefaultAsync(b => b.Name == "95");
+
+        //     if (benzene92 == null || benzene95 == null)
+        //         return BadRequest("Benzene pricing information is missing.");
+
+        //     var totalMoney92 = total92 * (long)benzene92.PriceOfSelling;
+        //     var totalMoney95 = total95 * (long)benzene95.PriceOfSelling;
+        //     var totalMoney = totalMoney92 + totalMoney95;
+
+        //     // 🔹 Set all DateTime fields to UTC before saving
+        //     existingReceipt.Date = request.Date;
+        //     existingReceipt.BenzeneGunCounters = updatedCounters;
+        //     existingReceipt.TotalLitre92 = total92;
+        //     existingReceipt.TotalLitre95 = total95;
+
+        //     existingReceipt.TotalMoney92 = totalMoney92;
+        //     existingReceipt.TotalMoney95 = totalMoney95;
+        //     existingReceipt.TotalMoney = totalMoney;
+        //     existingReceipt.OpenAmount = request.OpenAmount;
+
+        //     await _context.SaveChangesAsync();
+        //     await transaction.CommitAsync();
+
+        //     return Ok(existingReceipt);
+        // }
+
+        
 
     // 🔹 Request Model for input
     public class SellingReceiptRequest
     {
         public DateTime Date { get; set; }
         public List<BenzeneGunCounterRequest> BenzeneGunCounters { get; set; }
+        
+        public long OpenAmount { get; set; } // New property
     }
+
 
     public class BenzeneGunCounterRequest
     {
@@ -172,4 +257,5 @@ namespace mobileBackendsoftFount.Controllers
         public long EndRoundTwoCount { get; set; }
         public long EndRoundThreeCount { get; set; }
     }
+}
 }

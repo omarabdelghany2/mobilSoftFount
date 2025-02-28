@@ -3990,19 +3990,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/omarabdelghany/.nuget/packages/": {}
+    "/root/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/omarabdelghany/Documents/mobile/mobileBackendsoftFount/mobileBackendsoftFount.csproj",
+      "projectUniqueName": "/root/mobilSoftFount/mobileBackendsoftFount/mobileBackendsoftFount.csproj",
       "projectName": "mobileBackendsoftFount",
-      "projectPath": "/Users/omarabdelghany/Documents/mobile/mobileBackendsoftFount/mobileBackendsoftFount.csproj",
-      "packagesPath": "/Users/omarabdelghany/.nuget/packages/",
-      "outputPath": "/Users/omarabdelghany/Documents/mobile/mobileBackendsoftFount/obj/",
+      "projectPath": "/root/mobilSoftFount/mobileBackendsoftFount/mobileBackendsoftFount.csproj",
+      "packagesPath": "/root/.nuget/packages/",
+      "outputPath": "/root/mobilSoftFount/mobileBackendsoftFount/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/omarabdelghany/.nuget/NuGet/NuGet.Config"
+        "/root/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -4093,7 +4093,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.401/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.406/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

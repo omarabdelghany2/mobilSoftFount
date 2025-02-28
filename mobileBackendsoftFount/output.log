@@ -1,0 +1,1882 @@
+nohup: ignoring input
+Building...
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (55ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT CASE WHEN COUNT(*) = 0 THEN FALSE ELSE TRUE END
+      FROM pg_class AS cls
+      JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+      WHERE
+              cls.relkind IN ('r', 'v', 'm', 'f', 'p') AND
+              ns.nspname NOT IN ('pg_catalog', 'information_schema') AND
+              -- Exclude tables which are members of PG extensions
+              NOT EXISTS (
+                  SELECT 1 FROM pg_depend WHERE
+                      classid=(
+                          SELECT cls.oid
+                          FROM pg_class AS cls
+                                   JOIN pg_namespace AS ns ON ns.oid = cls.relnamespace
+                          WHERE relname='pg_class' AND ns.nspname='pg_catalog'
+                      ) AND
+                      objid=cls.oid AND
+                      deptype IN ('e', 'x')
+              )
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: http://[::]:5187
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Development
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: /root/mobilSoftFount/mobileBackendsoftFount
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (11ms) [Parameters=[@__loginRequest_Email_0='?'], CommandType='Text', CommandTimeout='30']
+      SELECT u."Id", u."Email", u."Name", u."PasswordHash", u."Role"
+      FROM "Users" AS u
+      WHERE u."Email" = @__loginRequest_Email_0
+      LIMIT 2
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__loginRequest_Email_0='?'], CommandType='Text', CommandTimeout='30']
+      SELECT u."Id", u."Email", u."Name", u."PasswordHash", u."Role"
+      FROM "Users" AS u
+      WHERE u."Email" = @__loginRequest_Email_0
+      LIMIT 2
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (4ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."Name", b."PriceOfLitre", b."PriceOfSelling", b."RateOfEvaporation", b."RateOfTaxes", b."RateOfVats"
+      FROM "Benzenes" AS b
+      WHERE b."Name" = '92'
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."Name", b."PriceOfLitre", b."PriceOfSelling", b."RateOfEvaporation", b."RateOfTaxes", b."RateOfVats"
+      FROM "Benzenes" AS b
+      WHERE b."Name" = '95'
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (10ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = Int64), @p2='?' (DbType = Int64), @p3='?' (DbType = Int64), @p4='?' (DbType = Int64), @p5='?' (DbType = Int64), @p6='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "SellingReceipts" ("Date", "OpenAmount", "TotalLiter92", "TotalLiter95", "TotalMoney", "TotalMoney92", "TotalMoney95")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@p12='?' (DbType = Int32), @p7='?' (DbType = Int64), @p8='?' (DbType = Int64), @p9='?' (DbType = Int64), @p10='?' (DbType = Int32), @p11='?' (DbType = Int64), @p19='?' (DbType = Int32), @p13='?' (DbType = Int64), @p14='?' (DbType = Int64), @p15='?' (DbType = Int64), @p16='?' (DbType = Int32), @p17='?' (DbType = Int64), @p18='?' (DbType = Int64), @p26='?' (DbType = Int32), @p20='?' (DbType = Int64), @p21='?' (DbType = Int64), @p22='?' (DbType = Int64), @p23='?' (DbType = Int32), @p24='?' (DbType = Int64), @p25='?' (DbType = Int64), @p33='?' (DbType = Int32), @p27='?' (DbType = Int64), @p28='?' (DbType = Int64), @p29='?' (DbType = Int64), @p30='?' (DbType = Int32), @p31='?' (DbType = Int64), @p32='?' (DbType = Int64), @p40='?' (DbType = Int32), @p34='?' (DbType = Int64), @p35='?' (DbType = Int64), @p36='?' (DbType = Int64), @p37='?' (DbType = Int32), @p38='?' (DbType = Int64), @p39='?' (DbType = Int64), @p47='?' (DbType = Int32), @p41='?' (DbType = Int64), @p42='?' (DbType = Int64), @p43='?' (DbType = Int64), @p44='?' (DbType = Int32), @p45='?' (DbType = Int64), @p46='?' (DbType = Int64), @p54='?' (DbType = Int32), @p48='?' (DbType = Int64), @p49='?' (DbType = Int64), @p50='?' (DbType = Int64), @p51='?' (DbType = Int32), @p52='?' (DbType = Int64), @p53='?' (DbType = Int64), @p61='?' (DbType = Int32), @p55='?' (DbType = Int64), @p56='?' (DbType = Int64), @p57='?' (DbType = Int64), @p58='?' (DbType = Int32), @p59='?' (DbType = Int64), @p60='?' (DbType = Int64), @p68='?' (DbType = Int32), @p62='?' (DbType = Int64), @p63='?' (DbType = Int64), @p64='?' (DbType = Int64), @p65='?' (DbType = Int32), @p66='?' (DbType = Int64), @p67='?' (DbType = Int64), @p75='?' (DbType = Int32), @p69='?' (DbType = Int64), @p70='?' (DbType = Int64), @p71='?' (DbType = Int64), @p72='?' (DbType = Int32), @p73='?' (DbType = Int64), @p74='?' (DbType = Int64), @p82='?' (DbType = Int32), @p76='?' (DbType = Int64), @p77='?' (DbType = Int64), @p78='?' (DbType = Int64), @p79='?' (DbType = Int32), @p80='?' (DbType = Int64), @p81='?' (DbType = Int64), @p89='?' (DbType = Int32), @p83='?' (DbType = Int64), @p84='?' (DbType = Int64), @p85='?' (DbType = Int64), @p86='?' (DbType = Int32), @p87='?' (DbType = Int64), @p88='?' (DbType = Int64), @p96='?' (DbType = Int32), @p90='?' (DbType = Int64), @p91='?' (DbType = Int64), @p92='?' (DbType = Int64), @p93='?' (DbType = Int32), @p94='?' (DbType = Int64), @p95='?' (DbType = Int64), @p103='?' (DbType = Int32), @p97='?' (DbType = Int64), @p98='?' (DbType = Int64), @p99='?' (DbType = Int64), @p100='?' (DbType = Int32), @p101='?' (DbType = Int64), @p102='?' (DbType = Int64), @p110='?' (DbType = Int32), @p104='?' (DbType = Int64), @p105='?' (DbType = Int64), @p106='?' (DbType = Int64), @p107='?' (DbType = Int32), @p108='?' (DbType = Int64), @p109='?' (DbType = Int64), @p117='?' (DbType = Int32), @p111='?' (DbType = Int64), @p112='?' (DbType = Int64), @p113='?' (DbType = Int64), @p114='?' (DbType = Int32), @p115='?' (DbType = Int64), @p116='?' (DbType = Int64), @p124='?' (DbType = Int32), @p118='?' (DbType = Int64), @p119='?' (DbType = Int64), @p120='?' (DbType = Int64), @p121='?' (DbType = Int32), @p122='?' (DbType = Int64), @p123='?' (DbType = Int64), @p131='?' (DbType = Int32), @p125='?' (DbType = Int64), @p126='?' (DbType = Int64), @p127='?' (DbType = Int64), @p128='?' (DbType = Int32), @p129='?' (DbType = Int64), @p130='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      UPDATE "BenzeneGunCounters" SET "EndRoundOneCount" = @p7, "EndRoundThreeCount" = @p8, "EndRoundTwoCount" = @p9, "SellingReceiptId" = @p10, "TotalSold" = @p11
+      WHERE "Id" = @p12;
+      UPDATE "BenzeneGunCounters" SET "EndRoundOneCount" = @p13, "EndRoundThreeCount" = @p14, "EndRoundTwoCount" = @p15, "SellingReceiptId" = @p16, "StartCount" = @p17, "TotalSold" = @p18
+      WHERE "Id" = @p19;
+      UPDATE "BenzeneGunCounters" SET "EndRoundOneCount" = @p20, "EndRoundThreeCount" = @p21, "EndRoundTwoCount" = @p22, "SellingReceiptId" = @p23, "StartCount" = @p24, "TotalSold" = @p25
+      WHERE "Id" = @p26;
+      UPDATE "BenzeneGunCounters" SET "EndRoundOneCount" = @p27, "EndRoundThreeCount" = @p28, "EndRoundTwoCount" = @p29, "SellingReceiptId" = @p30, "StartCount" = @p31, "TotalSold" = @p32
+      WHERE "Id" = @p33;
+      UPDATE "BenzeneGunCounters" SET "EndRoundOneCount" = @p34, "EndRoundThreeCount" = @p35, "EndRoundTwoCount" = @p36, "SellingReceiptId" = @p37, "StartCount" = @p38, "TotalSold" = @p39
+      WHERE "Id" = @p40;
+      UPDATE "BenzeneGunCounters" SET "EndRoundOneCount" = @p41, "EndRoundThreeCount" = @p42, "EndRoundTwoCount" = @p43, "SellingReceiptId" = @p44, "StartCount" = @p45, "TotalSold" = @p46
+      WHERE "Id" = @p47;
+      UPDATE "BenzeneGunCounters" SET "EndRoundOneCount" = @p48, "EndRoundThreeCount" = @p49, "EndRoundTwoCount" = @p50, "SellingReceiptId" = @p51, "StartCount" = @p52, "TotalSold" = @p53
+      WHERE "Id" = @p54;
+      UPDATE "BenzeneGunCounters" SET "EndRoundOneCount" = @p55, "EndRoundThreeCount" = @p56, "EndRoundTwoCount" = @p57, "SellingReceiptId" = @p58, "StartCount" = @p59, "TotalSold" = @p60
+      WHERE "Id" = @p61;
+      UPDATE "BenzeneGunCounters" SET "EndRoundOneCount" = @p62, "EndRoundThreeCount" = @p63, "EndRoundTwoCount" = @p64, "SellingReceiptId" = @p65, "StartCount" = @p66, "TotalSold" = @p67
+      WHERE "Id" = @p68;
+      UPDATE "BenzeneGunCounters" SET "EndRoundOneCount" = @p69, "EndRoundThreeCount" = @p70, "EndRoundTwoCount" = @p71, "SellingReceiptId" = @p72, "StartCount" = @p73, "TotalSold" = @p74
+      WHERE "Id" = @p75;
+      UPDATE "BenzeneGunCounters" SET "EndRoundOneCount" = @p76, "EndRoundThreeCount" = @p77, "EndRoundTwoCount" = @p78, "SellingReceiptId" = @p79, "StartCount" = @p80, "TotalSold" = @p81
+      WHERE "Id" = @p82;
+      UPDATE "BenzeneGunCounters" SET "EndRoundOneCount" = @p83, "EndRoundThreeCount" = @p84, "EndRoundTwoCount" = @p85, "SellingReceiptId" = @p86, "StartCount" = @p87, "TotalSold" = @p88
+      WHERE "Id" = @p89;
+      UPDATE "BenzeneGunCounters" SET "EndRoundOneCount" = @p90, "EndRoundThreeCount" = @p91, "EndRoundTwoCount" = @p92, "SellingReceiptId" = @p93, "StartCount" = @p94, "TotalSold" = @p95
+      WHERE "Id" = @p96;
+      UPDATE "BenzeneGunCounters" SET "EndRoundOneCount" = @p97, "EndRoundThreeCount" = @p98, "EndRoundTwoCount" = @p99, "SellingReceiptId" = @p100, "StartCount" = @p101, "TotalSold" = @p102
+      WHERE "Id" = @p103;
+      UPDATE "BenzeneGunCounters" SET "EndRoundOneCount" = @p104, "EndRoundThreeCount" = @p105, "EndRoundTwoCount" = @p106, "SellingReceiptId" = @p107, "StartCount" = @p108, "TotalSold" = @p109
+      WHERE "Id" = @p110;
+      UPDATE "BenzeneGunCounters" SET "EndRoundOneCount" = @p111, "EndRoundThreeCount" = @p112, "EndRoundTwoCount" = @p113, "SellingReceiptId" = @p114, "StartCount" = @p115, "TotalSold" = @p116
+      WHERE "Id" = @p117;
+      UPDATE "BenzeneGunCounters" SET "EndRoundOneCount" = @p118, "EndRoundThreeCount" = @p119, "EndRoundTwoCount" = @p120, "SellingReceiptId" = @p121, "StartCount" = @p122, "TotalSold" = @p123
+      WHERE "Id" = @p124;
+      UPDATE "BenzeneGunCounters" SET "EndRoundOneCount" = @p125, "EndRoundThreeCount" = @p126, "EndRoundTwoCount" = @p127, "SellingReceiptId" = @p128, "StartCount" = @p129, "TotalSold" = @p130
+      WHERE "Id" = @p131;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."Name", b."PriceOfLitre", b."PriceOfSelling", b."RateOfEvaporation", b."RateOfTaxes", b."RateOfVats"
+      FROM "Benzenes" AS b
+      WHERE b."Name" = '92'
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."Name", b."PriceOfLitre", b."PriceOfSelling", b."RateOfEvaporation", b."RateOfTaxes", b."RateOfVats"
+      FROM "Benzenes" AS b
+      WHERE b."Name" = '95'
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = Int64), @p2='?' (DbType = Int64), @p3='?' (DbType = Int64), @p4='?' (DbType = Int64), @p5='?' (DbType = Int64), @p6='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "SellingReceipts" ("Date", "OpenAmount", "TotalLiter92", "TotalLiter95", "TotalMoney", "TotalMoney92", "TotalMoney95")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p10='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Int64), @p9='?' (DbType = Int64), @p14='?' (DbType = Int32), @p11='?' (DbType = Int32), @p12='?' (DbType = Int64), @p13='?' (DbType = Int64), @p18='?' (DbType = Int32), @p15='?' (DbType = Int32), @p16='?' (DbType = Int64), @p17='?' (DbType = Int64), @p22='?' (DbType = Int32), @p19='?' (DbType = Int32), @p20='?' (DbType = Int64), @p21='?' (DbType = Int64), @p26='?' (DbType = Int32), @p23='?' (DbType = Int32), @p24='?' (DbType = Int64), @p25='?' (DbType = Int64), @p30='?' (DbType = Int32), @p27='?' (DbType = Int32), @p28='?' (DbType = Int64), @p29='?' (DbType = Int64), @p34='?' (DbType = Int32), @p31='?' (DbType = Int32), @p32='?' (DbType = Int64), @p33='?' (DbType = Int64), @p38='?' (DbType = Int32), @p35='?' (DbType = Int32), @p36='?' (DbType = Int64), @p37='?' (DbType = Int64), @p42='?' (DbType = Int32), @p39='?' (DbType = Int32), @p40='?' (DbType = Int64), @p41='?' (DbType = Int64), @p46='?' (DbType = Int32), @p43='?' (DbType = Int32), @p44='?' (DbType = Int64), @p45='?' (DbType = Int64), @p50='?' (DbType = Int32), @p47='?' (DbType = Int32), @p48='?' (DbType = Int64), @p49='?' (DbType = Int64), @p54='?' (DbType = Int32), @p51='?' (DbType = Int32), @p52='?' (DbType = Int64), @p53='?' (DbType = Int64), @p58='?' (DbType = Int32), @p55='?' (DbType = Int32), @p56='?' (DbType = Int64), @p57='?' (DbType = Int64), @p62='?' (DbType = Int32), @p59='?' (DbType = Int32), @p60='?' (DbType = Int64), @p61='?' (DbType = Int64), @p66='?' (DbType = Int32), @p63='?' (DbType = Int32), @p64='?' (DbType = Int64), @p65='?' (DbType = Int64), @p70='?' (DbType = Int32), @p67='?' (DbType = Int32), @p68='?' (DbType = Int64), @p69='?' (DbType = Int64), @p74='?' (DbType = Int32), @p71='?' (DbType = Int32), @p72='?' (DbType = Int64), @p73='?' (DbType = Int64), @p78='?' (DbType = Int32), @p75='?' (DbType = Int32), @p76='?' (DbType = Int64), @p77='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p7, "StartCount" = @p8, "TotalSold" = @p9
+      WHERE "Id" = @p10;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p11, "StartCount" = @p12, "TotalSold" = @p13
+      WHERE "Id" = @p14;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p15, "StartCount" = @p16, "TotalSold" = @p17
+      WHERE "Id" = @p18;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p19, "StartCount" = @p20, "TotalSold" = @p21
+      WHERE "Id" = @p22;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p23, "StartCount" = @p24, "TotalSold" = @p25
+      WHERE "Id" = @p26;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p27, "StartCount" = @p28, "TotalSold" = @p29
+      WHERE "Id" = @p30;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p31, "StartCount" = @p32, "TotalSold" = @p33
+      WHERE "Id" = @p34;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p35, "StartCount" = @p36, "TotalSold" = @p37
+      WHERE "Id" = @p38;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p39, "StartCount" = @p40, "TotalSold" = @p41
+      WHERE "Id" = @p42;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p43, "StartCount" = @p44, "TotalSold" = @p45
+      WHERE "Id" = @p46;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p47, "StartCount" = @p48, "TotalSold" = @p49
+      WHERE "Id" = @p50;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p51, "StartCount" = @p52, "TotalSold" = @p53
+      WHERE "Id" = @p54;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p55, "StartCount" = @p56, "TotalSold" = @p57
+      WHERE "Id" = @p58;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p59, "StartCount" = @p60, "TotalSold" = @p61
+      WHERE "Id" = @p62;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p63, "StartCount" = @p64, "TotalSold" = @p65
+      WHERE "Id" = @p66;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p67, "StartCount" = @p68, "TotalSold" = @p69
+      WHERE "Id" = @p70;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p71, "StartCount" = @p72, "TotalSold" = @p73
+      WHERE "Id" = @p74;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p75, "StartCount" = @p76, "TotalSold" = @p77
+      WHERE "Id" = @p78;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."Name", b."PriceOfLitre", b."PriceOfSelling", b."RateOfEvaporation", b."RateOfTaxes", b."RateOfVats"
+      FROM "Benzenes" AS b
+      WHERE b."Name" = '92'
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."Name", b."PriceOfLitre", b."PriceOfSelling", b."RateOfEvaporation", b."RateOfTaxes", b."RateOfVats"
+      FROM "Benzenes" AS b
+      WHERE b."Name" = '95'
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = Int64), @p2='?' (DbType = Int64), @p3='?' (DbType = Int64), @p4='?' (DbType = Int64), @p5='?' (DbType = Int64), @p6='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "SellingReceipts" ("Date", "OpenAmount", "TotalLiter92", "TotalLiter95", "TotalMoney", "TotalMoney92", "TotalMoney95")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p8='?' (DbType = Int32), @p7='?' (DbType = Int32), @p10='?' (DbType = Int32), @p9='?' (DbType = Int32), @p12='?' (DbType = Int32), @p11='?' (DbType = Int32), @p14='?' (DbType = Int32), @p13='?' (DbType = Int32), @p16='?' (DbType = Int32), @p15='?' (DbType = Int32), @p18='?' (DbType = Int32), @p17='?' (DbType = Int32), @p20='?' (DbType = Int32), @p19='?' (DbType = Int32), @p22='?' (DbType = Int32), @p21='?' (DbType = Int32), @p24='?' (DbType = Int32), @p23='?' (DbType = Int32), @p26='?' (DbType = Int32), @p25='?' (DbType = Int32), @p28='?' (DbType = Int32), @p27='?' (DbType = Int32), @p30='?' (DbType = Int32), @p29='?' (DbType = Int32), @p32='?' (DbType = Int32), @p31='?' (DbType = Int32), @p34='?' (DbType = Int32), @p33='?' (DbType = Int32), @p36='?' (DbType = Int32), @p35='?' (DbType = Int32), @p38='?' (DbType = Int32), @p37='?' (DbType = Int32), @p40='?' (DbType = Int32), @p39='?' (DbType = Int32), @p42='?' (DbType = Int32), @p41='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p7
+      WHERE "Id" = @p8;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p9
+      WHERE "Id" = @p10;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p11
+      WHERE "Id" = @p12;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p13
+      WHERE "Id" = @p14;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p15
+      WHERE "Id" = @p16;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p17
+      WHERE "Id" = @p18;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p19
+      WHERE "Id" = @p20;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p21
+      WHERE "Id" = @p22;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p23
+      WHERE "Id" = @p24;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p25
+      WHERE "Id" = @p26;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p27
+      WHERE "Id" = @p28;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p29
+      WHERE "Id" = @p30;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p31
+      WHERE "Id" = @p32;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p33
+      WHERE "Id" = @p34;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p35
+      WHERE "Id" = @p36;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p37
+      WHERE "Id" = @p38;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p39
+      WHERE "Id" = @p40;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p41
+      WHERE "Id" = @p42;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."Name", b."PriceOfLitre", b."PriceOfSelling", b."RateOfEvaporation", b."RateOfTaxes", b."RateOfVats"
+      FROM "Benzenes" AS b
+      WHERE b."Name" = '92'
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."Name", b."PriceOfLitre", b."PriceOfSelling", b."RateOfEvaporation", b."RateOfTaxes", b."RateOfVats"
+      FROM "Benzenes" AS b
+      WHERE b."Name" = '95'
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = Int64), @p2='?' (DbType = Int64), @p3='?' (DbType = Int64), @p4='?' (DbType = Int64), @p5='?' (DbType = Int64), @p6='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "SellingReceipts" ("Date", "OpenAmount", "TotalLiter92", "TotalLiter95", "TotalMoney", "TotalMoney92", "TotalMoney95")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p8='?' (DbType = Int32), @p7='?' (DbType = Int32), @p10='?' (DbType = Int32), @p9='?' (DbType = Int32), @p12='?' (DbType = Int32), @p11='?' (DbType = Int32), @p14='?' (DbType = Int32), @p13='?' (DbType = Int32), @p16='?' (DbType = Int32), @p15='?' (DbType = Int32), @p18='?' (DbType = Int32), @p17='?' (DbType = Int32), @p20='?' (DbType = Int32), @p19='?' (DbType = Int32), @p22='?' (DbType = Int32), @p21='?' (DbType = Int32), @p24='?' (DbType = Int32), @p23='?' (DbType = Int32), @p26='?' (DbType = Int32), @p25='?' (DbType = Int32), @p28='?' (DbType = Int32), @p27='?' (DbType = Int32), @p30='?' (DbType = Int32), @p29='?' (DbType = Int32), @p32='?' (DbType = Int32), @p31='?' (DbType = Int32), @p34='?' (DbType = Int32), @p33='?' (DbType = Int32), @p36='?' (DbType = Int32), @p35='?' (DbType = Int32), @p38='?' (DbType = Int32), @p37='?' (DbType = Int32), @p40='?' (DbType = Int32), @p39='?' (DbType = Int32), @p42='?' (DbType = Int32), @p41='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p7
+      WHERE "Id" = @p8;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p9
+      WHERE "Id" = @p10;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p11
+      WHERE "Id" = @p12;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p13
+      WHERE "Id" = @p14;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p15
+      WHERE "Id" = @p16;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p17
+      WHERE "Id" = @p18;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p19
+      WHERE "Id" = @p20;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p21
+      WHERE "Id" = @p22;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p23
+      WHERE "Id" = @p24;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p25
+      WHERE "Id" = @p26;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p27
+      WHERE "Id" = @p28;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p29
+      WHERE "Id" = @p30;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p31
+      WHERE "Id" = @p32;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p33
+      WHERE "Id" = @p34;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p35
+      WHERE "Id" = @p36;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p37
+      WHERE "Id" = @p38;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p39
+      WHERE "Id" = @p40;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p41
+      WHERE "Id" = @p42;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."Name", b."PriceOfLitre", b."PriceOfSelling", b."RateOfEvaporation", b."RateOfTaxes", b."RateOfVats"
+      FROM "Benzenes" AS b
+      WHERE b."Name" = '92'
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."Name", b."PriceOfLitre", b."PriceOfSelling", b."RateOfEvaporation", b."RateOfTaxes", b."RateOfVats"
+      FROM "Benzenes" AS b
+      WHERE b."Name" = '95'
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = Int64), @p2='?' (DbType = Int64), @p3='?' (DbType = Int64), @p4='?' (DbType = Int64), @p5='?' (DbType = Int64), @p6='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "SellingReceipts" ("Date", "OpenAmount", "TotalLiter92", "TotalLiter95", "TotalMoney", "TotalMoney92", "TotalMoney95")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p8='?' (DbType = Int32), @p7='?' (DbType = Int32), @p10='?' (DbType = Int32), @p9='?' (DbType = Int32), @p12='?' (DbType = Int32), @p11='?' (DbType = Int32), @p14='?' (DbType = Int32), @p13='?' (DbType = Int32), @p16='?' (DbType = Int32), @p15='?' (DbType = Int32), @p18='?' (DbType = Int32), @p17='?' (DbType = Int32), @p20='?' (DbType = Int32), @p19='?' (DbType = Int32), @p22='?' (DbType = Int32), @p21='?' (DbType = Int32), @p24='?' (DbType = Int32), @p23='?' (DbType = Int32), @p26='?' (DbType = Int32), @p25='?' (DbType = Int32), @p28='?' (DbType = Int32), @p27='?' (DbType = Int32), @p30='?' (DbType = Int32), @p29='?' (DbType = Int32), @p32='?' (DbType = Int32), @p31='?' (DbType = Int32), @p34='?' (DbType = Int32), @p33='?' (DbType = Int32), @p36='?' (DbType = Int32), @p35='?' (DbType = Int32), @p38='?' (DbType = Int32), @p37='?' (DbType = Int32), @p40='?' (DbType = Int32), @p39='?' (DbType = Int32), @p42='?' (DbType = Int32), @p41='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p7
+      WHERE "Id" = @p8;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p9
+      WHERE "Id" = @p10;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p11
+      WHERE "Id" = @p12;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p13
+      WHERE "Id" = @p14;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p15
+      WHERE "Id" = @p16;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p17
+      WHERE "Id" = @p18;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p19
+      WHERE "Id" = @p20;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p21
+      WHERE "Id" = @p22;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p23
+      WHERE "Id" = @p24;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p25
+      WHERE "Id" = @p26;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p27
+      WHERE "Id" = @p28;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p29
+      WHERE "Id" = @p30;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p31
+      WHERE "Id" = @p32;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p33
+      WHERE "Id" = @p34;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p35
+      WHERE "Id" = @p36;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p37
+      WHERE "Id" = @p38;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p39
+      WHERE "Id" = @p40;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p41
+      WHERE "Id" = @p42;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."Name", b."PriceOfLitre", b."PriceOfSelling", b."RateOfEvaporation", b."RateOfTaxes", b."RateOfVats"
+      FROM "Benzenes" AS b
+      WHERE b."Name" = '92'
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."Name", b."PriceOfLitre", b."PriceOfSelling", b."RateOfEvaporation", b."RateOfTaxes", b."RateOfVats"
+      FROM "Benzenes" AS b
+      WHERE b."Name" = '95'
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = Int64), @p2='?' (DbType = Int64), @p3='?' (DbType = Int64), @p4='?' (DbType = Int64), @p5='?' (DbType = Int64), @p6='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "SellingReceipts" ("Date", "OpenAmount", "TotalLiter92", "TotalLiter95", "TotalMoney", "TotalMoney92", "TotalMoney95")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p8='?' (DbType = Int32), @p7='?' (DbType = Int32), @p10='?' (DbType = Int32), @p9='?' (DbType = Int32), @p12='?' (DbType = Int32), @p11='?' (DbType = Int32), @p14='?' (DbType = Int32), @p13='?' (DbType = Int32), @p16='?' (DbType = Int32), @p15='?' (DbType = Int32), @p18='?' (DbType = Int32), @p17='?' (DbType = Int32), @p20='?' (DbType = Int32), @p19='?' (DbType = Int32), @p22='?' (DbType = Int32), @p21='?' (DbType = Int32), @p24='?' (DbType = Int32), @p23='?' (DbType = Int32), @p26='?' (DbType = Int32), @p25='?' (DbType = Int32), @p28='?' (DbType = Int32), @p27='?' (DbType = Int32), @p30='?' (DbType = Int32), @p29='?' (DbType = Int32), @p32='?' (DbType = Int32), @p31='?' (DbType = Int32), @p34='?' (DbType = Int32), @p33='?' (DbType = Int32), @p36='?' (DbType = Int32), @p35='?' (DbType = Int32), @p38='?' (DbType = Int32), @p37='?' (DbType = Int32), @p40='?' (DbType = Int32), @p39='?' (DbType = Int32), @p42='?' (DbType = Int32), @p41='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p7
+      WHERE "Id" = @p8;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p9
+      WHERE "Id" = @p10;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p11
+      WHERE "Id" = @p12;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p13
+      WHERE "Id" = @p14;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p15
+      WHERE "Id" = @p16;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p17
+      WHERE "Id" = @p18;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p19
+      WHERE "Id" = @p20;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p21
+      WHERE "Id" = @p22;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p23
+      WHERE "Id" = @p24;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p25
+      WHERE "Id" = @p26;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p27
+      WHERE "Id" = @p28;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p29
+      WHERE "Id" = @p30;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p31
+      WHERE "Id" = @p32;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p33
+      WHERE "Id" = @p34;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p35
+      WHERE "Id" = @p36;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p37
+      WHERE "Id" = @p38;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p39
+      WHERE "Id" = @p40;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p41
+      WHERE "Id" = @p42;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."Name", b."PriceOfLitre", b."PriceOfSelling", b."RateOfEvaporation", b."RateOfTaxes", b."RateOfVats"
+      FROM "Benzenes" AS b
+      WHERE b."Name" = '92'
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."Name", b."PriceOfLitre", b."PriceOfSelling", b."RateOfEvaporation", b."RateOfTaxes", b."RateOfVats"
+      FROM "Benzenes" AS b
+      WHERE b."Name" = '95'
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = Int64), @p2='?' (DbType = Int64), @p3='?' (DbType = Int64), @p4='?' (DbType = Int64), @p5='?' (DbType = Int64), @p6='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "SellingReceipts" ("Date", "OpenAmount", "TotalLiter92", "TotalLiter95", "TotalMoney", "TotalMoney92", "TotalMoney95")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p8='?' (DbType = Int32), @p7='?' (DbType = Int32), @p10='?' (DbType = Int32), @p9='?' (DbType = Int32), @p12='?' (DbType = Int32), @p11='?' (DbType = Int32), @p14='?' (DbType = Int32), @p13='?' (DbType = Int32), @p16='?' (DbType = Int32), @p15='?' (DbType = Int32), @p18='?' (DbType = Int32), @p17='?' (DbType = Int32), @p20='?' (DbType = Int32), @p19='?' (DbType = Int32), @p22='?' (DbType = Int32), @p21='?' (DbType = Int32), @p24='?' (DbType = Int32), @p23='?' (DbType = Int32), @p26='?' (DbType = Int32), @p25='?' (DbType = Int32), @p28='?' (DbType = Int32), @p27='?' (DbType = Int32), @p30='?' (DbType = Int32), @p29='?' (DbType = Int32), @p32='?' (DbType = Int32), @p31='?' (DbType = Int32), @p34='?' (DbType = Int32), @p33='?' (DbType = Int32), @p36='?' (DbType = Int32), @p35='?' (DbType = Int32), @p38='?' (DbType = Int32), @p37='?' (DbType = Int32), @p40='?' (DbType = Int32), @p39='?' (DbType = Int32), @p42='?' (DbType = Int32), @p41='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p7
+      WHERE "Id" = @p8;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p9
+      WHERE "Id" = @p10;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p11
+      WHERE "Id" = @p12;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p13
+      WHERE "Id" = @p14;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p15
+      WHERE "Id" = @p16;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p17
+      WHERE "Id" = @p18;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p19
+      WHERE "Id" = @p20;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p21
+      WHERE "Id" = @p22;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p23
+      WHERE "Id" = @p24;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p25
+      WHERE "Id" = @p26;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p27
+      WHERE "Id" = @p28;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p29
+      WHERE "Id" = @p30;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p31
+      WHERE "Id" = @p32;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p33
+      WHERE "Id" = @p34;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p35
+      WHERE "Id" = @p36;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p37
+      WHERE "Id" = @p38;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p39
+      WHERE "Id" = @p40;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p41
+      WHERE "Id" = @p42;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."Name", b."PriceOfLitre", b."PriceOfSelling", b."RateOfEvaporation", b."RateOfTaxes", b."RateOfVats"
+      FROM "Benzenes" AS b
+      WHERE b."Name" = '92'
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."Name", b."PriceOfLitre", b."PriceOfSelling", b."RateOfEvaporation", b."RateOfTaxes", b."RateOfVats"
+      FROM "Benzenes" AS b
+      WHERE b."Name" = '95'
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = Int64), @p2='?' (DbType = Int64), @p3='?' (DbType = Int64), @p4='?' (DbType = Int64), @p5='?' (DbType = Int64), @p6='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "SellingReceipts" ("Date", "OpenAmount", "TotalLiter92", "TotalLiter95", "TotalMoney", "TotalMoney92", "TotalMoney95")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p8='?' (DbType = Int32), @p7='?' (DbType = Int32), @p10='?' (DbType = Int32), @p9='?' (DbType = Int32), @p12='?' (DbType = Int32), @p11='?' (DbType = Int32), @p14='?' (DbType = Int32), @p13='?' (DbType = Int32), @p16='?' (DbType = Int32), @p15='?' (DbType = Int32), @p18='?' (DbType = Int32), @p17='?' (DbType = Int32), @p20='?' (DbType = Int32), @p19='?' (DbType = Int32), @p22='?' (DbType = Int32), @p21='?' (DbType = Int32), @p24='?' (DbType = Int32), @p23='?' (DbType = Int32), @p26='?' (DbType = Int32), @p25='?' (DbType = Int32), @p28='?' (DbType = Int32), @p27='?' (DbType = Int32), @p30='?' (DbType = Int32), @p29='?' (DbType = Int32), @p32='?' (DbType = Int32), @p31='?' (DbType = Int32), @p34='?' (DbType = Int32), @p33='?' (DbType = Int32), @p36='?' (DbType = Int32), @p35='?' (DbType = Int32), @p38='?' (DbType = Int32), @p37='?' (DbType = Int32), @p40='?' (DbType = Int32), @p39='?' (DbType = Int32), @p42='?' (DbType = Int32), @p41='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p7
+      WHERE "Id" = @p8;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p9
+      WHERE "Id" = @p10;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p11
+      WHERE "Id" = @p12;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p13
+      WHERE "Id" = @p14;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p15
+      WHERE "Id" = @p16;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p17
+      WHERE "Id" = @p18;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p19
+      WHERE "Id" = @p20;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p21
+      WHERE "Id" = @p22;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p23
+      WHERE "Id" = @p24;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p25
+      WHERE "Id" = @p26;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p27
+      WHERE "Id" = @p28;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p29
+      WHERE "Id" = @p30;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p31
+      WHERE "Id" = @p32;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p33
+      WHERE "Id" = @p34;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p35
+      WHERE "Id" = @p36;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p37
+      WHERE "Id" = @p38;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p39
+      WHERE "Id" = @p40;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p41
+      WHERE "Id" = @p42;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."Name", b."PriceOfLitre", b."PriceOfSelling", b."RateOfEvaporation", b."RateOfTaxes", b."RateOfVats"
+      FROM "Benzenes" AS b
+      WHERE b."Name" = '92'
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."Name", b."PriceOfLitre", b."PriceOfSelling", b."RateOfEvaporation", b."RateOfTaxes", b."RateOfVats"
+      FROM "Benzenes" AS b
+      WHERE b."Name" = '95'
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = Int64), @p2='?' (DbType = Int64), @p3='?' (DbType = Int64), @p4='?' (DbType = Int64), @p5='?' (DbType = Int64), @p6='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "SellingReceipts" ("Date", "OpenAmount", "TotalLiter92", "TotalLiter95", "TotalMoney", "TotalMoney92", "TotalMoney95")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p9='?' (DbType = Int32), @p7='?' (DbType = Int64), @p8='?' (DbType = Int32), @p12='?' (DbType = Int32), @p10='?' (DbType = Int64), @p11='?' (DbType = Int32), @p15='?' (DbType = Int32), @p13='?' (DbType = Int64), @p14='?' (DbType = Int32), @p18='?' (DbType = Int32), @p16='?' (DbType = Int64), @p17='?' (DbType = Int32), @p21='?' (DbType = Int32), @p19='?' (DbType = Int64), @p20='?' (DbType = Int32), @p24='?' (DbType = Int32), @p22='?' (DbType = Int64), @p23='?' (DbType = Int32), @p27='?' (DbType = Int32), @p25='?' (DbType = Int64), @p26='?' (DbType = Int32), @p30='?' (DbType = Int32), @p28='?' (DbType = Int64), @p29='?' (DbType = Int32), @p33='?' (DbType = Int32), @p31='?' (DbType = Int64), @p32='?' (DbType = Int32), @p36='?' (DbType = Int32), @p34='?' (DbType = Int64), @p35='?' (DbType = Int32), @p39='?' (DbType = Int32), @p37='?' (DbType = Int64), @p38='?' (DbType = Int32), @p42='?' (DbType = Int32), @p40='?' (DbType = Int64), @p41='?' (DbType = Int32), @p45='?' (DbType = Int32), @p43='?' (DbType = Int64), @p44='?' (DbType = Int32), @p48='?' (DbType = Int32), @p46='?' (DbType = Int64), @p47='?' (DbType = Int32), @p51='?' (DbType = Int32), @p49='?' (DbType = Int64), @p50='?' (DbType = Int32), @p54='?' (DbType = Int32), @p52='?' (DbType = Int64), @p53='?' (DbType = Int32), @p57='?' (DbType = Int32), @p55='?' (DbType = Int64), @p56='?' (DbType = Int32), @p60='?' (DbType = Int32), @p58='?' (DbType = Int64), @p59='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      UPDATE "BenzeneGunCounters" SET "EndRoundOneCount" = @p7, "SellingReceiptId" = @p8
+      WHERE "Id" = @p9;
+      UPDATE "BenzeneGunCounters" SET "EndRoundOneCount" = @p10, "SellingReceiptId" = @p11
+      WHERE "Id" = @p12;
+      UPDATE "BenzeneGunCounters" SET "EndRoundOneCount" = @p13, "SellingReceiptId" = @p14
+      WHERE "Id" = @p15;
+      UPDATE "BenzeneGunCounters" SET "EndRoundOneCount" = @p16, "SellingReceiptId" = @p17
+      WHERE "Id" = @p18;
+      UPDATE "BenzeneGunCounters" SET "EndRoundOneCount" = @p19, "SellingReceiptId" = @p20
+      WHERE "Id" = @p21;
+      UPDATE "BenzeneGunCounters" SET "EndRoundOneCount" = @p22, "SellingReceiptId" = @p23
+      WHERE "Id" = @p24;
+      UPDATE "BenzeneGunCounters" SET "EndRoundOneCount" = @p25, "SellingReceiptId" = @p26
+      WHERE "Id" = @p27;
+      UPDATE "BenzeneGunCounters" SET "EndRoundOneCount" = @p28, "SellingReceiptId" = @p29
+      WHERE "Id" = @p30;
+      UPDATE "BenzeneGunCounters" SET "EndRoundOneCount" = @p31, "SellingReceiptId" = @p32
+      WHERE "Id" = @p33;
+      UPDATE "BenzeneGunCounters" SET "EndRoundOneCount" = @p34, "SellingReceiptId" = @p35
+      WHERE "Id" = @p36;
+      UPDATE "BenzeneGunCounters" SET "EndRoundOneCount" = @p37, "SellingReceiptId" = @p38
+      WHERE "Id" = @p39;
+      UPDATE "BenzeneGunCounters" SET "EndRoundOneCount" = @p40, "SellingReceiptId" = @p41
+      WHERE "Id" = @p42;
+      UPDATE "BenzeneGunCounters" SET "EndRoundOneCount" = @p43, "SellingReceiptId" = @p44
+      WHERE "Id" = @p45;
+      UPDATE "BenzeneGunCounters" SET "EndRoundOneCount" = @p46, "SellingReceiptId" = @p47
+      WHERE "Id" = @p48;
+      UPDATE "BenzeneGunCounters" SET "EndRoundOneCount" = @p49, "SellingReceiptId" = @p50
+      WHERE "Id" = @p51;
+      UPDATE "BenzeneGunCounters" SET "EndRoundOneCount" = @p52, "SellingReceiptId" = @p53
+      WHERE "Id" = @p54;
+      UPDATE "BenzeneGunCounters" SET "EndRoundOneCount" = @p55, "SellingReceiptId" = @p56
+      WHERE "Id" = @p57;
+      UPDATE "BenzeneGunCounters" SET "EndRoundOneCount" = @p58, "SellingReceiptId" = @p59
+      WHERE "Id" = @p60;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
+      SELECT b."IncrementalId"
+      FROM "BenzeneBuyReceipts" AS b
+      WHERE date_trunc('day', b."Date", 'UTC') = @__date_Date_0
+      ORDER BY b."IncrementalId"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
+      SELECT b."IncrementalId"
+      FROM "BenzeneBuyReceipts" AS b
+      WHERE date_trunc('day', b."Date", 'UTC') = @__date_Date_0
+      ORDER BY b."IncrementalId"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
+      SELECT b."IncrementalId"
+      FROM "BenzeneBuyReceipts" AS b
+      WHERE date_trunc('day', b."Date", 'UTC') = @__date_Date_0
+      ORDER BY b."IncrementalId"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
+      SELECT b."IncrementalId"
+      FROM "BenzeneBuyReceipts" AS b
+      WHERE date_trunc('day', b."Date", 'UTC') = @__date_Date_0
+      ORDER BY b."IncrementalId"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@__incrementalId_0='?' (DbType = Int32), @__parsedDate_Year_1='?' (DbType = Int32), @__parsedDate_Month_2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b1."Id", b1."Date", b1."IncrementalId", b1."MobilId", b1."MobilReceiptDate", b1."TotalValue", b0."Id", b0."Amount", b0."BenzeneBuyReceiptId", b0."EvaporationPercentage", b0."PricePerLiter", b0."ProductName", b0."Taxes", b0."TotalValue", b0."ValueOfEvaporation", b0."ValueOfTaxes"
+      FROM (
+          SELECT b."Id", b."Date", b."IncrementalId", b."MobilId", b."MobilReceiptDate", b."TotalValue"
+          FROM "BenzeneBuyReceipts" AS b
+          WHERE b."IncrementalId" = @__incrementalId_0 AND date_part('year', b."Date" AT TIME ZONE 'UTC')::int = @__parsedDate_Year_1 AND date_part('month', b."Date" AT TIME ZONE 'UTC')::int = @__parsedDate_Month_2
+          LIMIT 1
+      ) AS b1
+      LEFT JOIN "BenzeneRecipeProducts" AS b0 ON b1."Id" = b0."BenzeneBuyReceiptId"
+      ORDER BY b1."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__incrementalId_0='?' (DbType = Int32), @__parsedDate_Year_1='?' (DbType = Int32), @__parsedDate_Month_2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b1."Id", b1."Date", b1."IncrementalId", b1."MobilId", b1."MobilReceiptDate", b1."TotalValue", b0."Id", b0."Amount", b0."BenzeneBuyReceiptId", b0."EvaporationPercentage", b0."PricePerLiter", b0."ProductName", b0."Taxes", b0."TotalValue", b0."ValueOfEvaporation", b0."ValueOfTaxes"
+      FROM (
+          SELECT b."Id", b."Date", b."IncrementalId", b."MobilId", b."MobilReceiptDate", b."TotalValue"
+          FROM "BenzeneBuyReceipts" AS b
+          WHERE b."IncrementalId" = @__incrementalId_0 AND date_part('year', b."Date" AT TIME ZONE 'UTC')::int = @__parsedDate_Year_1 AND date_part('month', b."Date" AT TIME ZONE 'UTC')::int = @__parsedDate_Month_2
+          LIMIT 1
+      ) AS b1
+      LEFT JOIN "BenzeneRecipeProducts" AS b0 ON b1."Id" = b0."BenzeneBuyReceiptId"
+      ORDER BY b1."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
+      SELECT b."IncrementalId"
+      FROM "BenzeneBuyReceipts" AS b
+      WHERE date_trunc('day', b."Date", 'UTC') = @__date_Date_0
+      ORDER BY b."IncrementalId"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
+      SELECT b."IncrementalId"
+      FROM "BenzeneBuyReceipts" AS b
+      WHERE date_trunc('day', b."Date", 'UTC') = @__date_Date_0
+      ORDER BY b."IncrementalId"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@__incrementalId_0='?' (DbType = Int32), @__parsedDate_Year_1='?' (DbType = Int32), @__parsedDate_Month_2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b1."Id", b1."Date", b1."IncrementalId", b1."MobilId", b1."MobilReceiptDate", b1."TotalValue", b0."Id", b0."Amount", b0."BenzeneBuyReceiptId", b0."EvaporationPercentage", b0."PricePerLiter", b0."ProductName", b0."Taxes", b0."TotalValue", b0."ValueOfEvaporation", b0."ValueOfTaxes"
+      FROM (
+          SELECT b."Id", b."Date", b."IncrementalId", b."MobilId", b."MobilReceiptDate", b."TotalValue"
+          FROM "BenzeneBuyReceipts" AS b
+          WHERE b."IncrementalId" = @__incrementalId_0 AND date_part('year', b."Date" AT TIME ZONE 'UTC')::int = @__parsedDate_Year_1 AND date_part('month', b."Date" AT TIME ZONE 'UTC')::int = @__parsedDate_Month_2
+          LIMIT 1
+      ) AS b1
+      LEFT JOIN "BenzeneRecipeProducts" AS b0 ON b1."Id" = b0."BenzeneBuyReceiptId"
+      ORDER BY b1."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (4ms) [Parameters=[@__incrementalId_0='?' (DbType = Int32), @__parsedDate_Year_1='?' (DbType = Int32), @__parsedDate_Month_2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b1."Id", b1."Date", b1."IncrementalId", b1."MobilId", b1."MobilReceiptDate", b1."TotalValue", b0."Id", b0."Amount", b0."BenzeneBuyReceiptId", b0."EvaporationPercentage", b0."PricePerLiter", b0."ProductName", b0."Taxes", b0."TotalValue", b0."ValueOfEvaporation", b0."ValueOfTaxes"
+      FROM (
+          SELECT b."Id", b."Date", b."IncrementalId", b."MobilId", b."MobilReceiptDate", b."TotalValue"
+          FROM "BenzeneBuyReceipts" AS b
+          WHERE b."IncrementalId" = @__incrementalId_0 AND date_part('year', b."Date" AT TIME ZONE 'UTC')::int = @__parsedDate_Year_1 AND date_part('month', b."Date" AT TIME ZONE 'UTC')::int = @__parsedDate_Month_2
+          LIMIT 1
+      ) AS b1
+      LEFT JOIN "BenzeneRecipeProducts" AS b0 ON b1."Id" = b0."BenzeneBuyReceiptId"
+      ORDER BY b1."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
+      SELECT b."IncrementalId"
+      FROM "BenzeneBuyReceipts" AS b
+      WHERE date_trunc('day', b."Date", 'UTC') = @__date_Date_0
+      ORDER BY b."IncrementalId"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__incrementalId_0='?' (DbType = Int32), @__parsedDate_Year_1='?' (DbType = Int32), @__parsedDate_Month_2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b1."Id", b1."Date", b1."IncrementalId", b1."MobilId", b1."MobilReceiptDate", b1."TotalValue", b0."Id", b0."Amount", b0."BenzeneBuyReceiptId", b0."EvaporationPercentage", b0."PricePerLiter", b0."ProductName", b0."Taxes", b0."TotalValue", b0."ValueOfEvaporation", b0."ValueOfTaxes"
+      FROM (
+          SELECT b."Id", b."Date", b."IncrementalId", b."MobilId", b."MobilReceiptDate", b."TotalValue"
+          FROM "BenzeneBuyReceipts" AS b
+          WHERE b."IncrementalId" = @__incrementalId_0 AND date_part('year', b."Date" AT TIME ZONE 'UTC')::int = @__parsedDate_Year_1 AND date_part('month', b."Date" AT TIME ZONE 'UTC')::int = @__parsedDate_Month_2
+          LIMIT 1
+      ) AS b1
+      LEFT JOIN "BenzeneRecipeProducts" AS b0 ON b1."Id" = b0."BenzeneBuyReceiptId"
+      ORDER BY b1."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__incrementalId_0='?' (DbType = Int32), @__parsedDate_Year_1='?' (DbType = Int32), @__parsedDate_Month_2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b1."Id", b1."Date", b1."IncrementalId", b1."MobilId", b1."MobilReceiptDate", b1."TotalValue", b0."Id", b0."Amount", b0."BenzeneBuyReceiptId", b0."EvaporationPercentage", b0."PricePerLiter", b0."ProductName", b0."Taxes", b0."TotalValue", b0."ValueOfEvaporation", b0."ValueOfTaxes"
+      FROM (
+          SELECT b."Id", b."Date", b."IncrementalId", b."MobilId", b."MobilReceiptDate", b."TotalValue"
+          FROM "BenzeneBuyReceipts" AS b
+          WHERE b."IncrementalId" = @__incrementalId_0 AND date_part('year', b."Date" AT TIME ZONE 'UTC')::int = @__parsedDate_Year_1 AND date_part('month', b."Date" AT TIME ZONE 'UTC')::int = @__parsedDate_Month_2
+          LIMIT 1
+      ) AS b1
+      LEFT JOIN "BenzeneRecipeProducts" AS b0 ON b1."Id" = b0."BenzeneBuyReceiptId"
+      ORDER BY b1."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
+      SELECT b."IncrementalId"
+      FROM "BenzeneBuyReceipts" AS b
+      WHERE date_trunc('day', b."Date", 'UTC') = @__date_Date_0
+      ORDER BY b."IncrementalId"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@__incrementalId_0='?' (DbType = Int32), @__parsedDate_Year_1='?' (DbType = Int32), @__parsedDate_Month_2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b1."Id", b1."Date", b1."IncrementalId", b1."MobilId", b1."MobilReceiptDate", b1."TotalValue", b0."Id", b0."Amount", b0."BenzeneBuyReceiptId", b0."EvaporationPercentage", b0."PricePerLiter", b0."ProductName", b0."Taxes", b0."TotalValue", b0."ValueOfEvaporation", b0."ValueOfTaxes"
+      FROM (
+          SELECT b."Id", b."Date", b."IncrementalId", b."MobilId", b."MobilReceiptDate", b."TotalValue"
+          FROM "BenzeneBuyReceipts" AS b
+          WHERE b."IncrementalId" = @__incrementalId_0 AND date_part('year', b."Date" AT TIME ZONE 'UTC')::int = @__parsedDate_Year_1 AND date_part('month', b."Date" AT TIME ZONE 'UTC')::int = @__parsedDate_Month_2
+          LIMIT 1
+      ) AS b1
+      LEFT JOIN "BenzeneRecipeProducts" AS b0 ON b1."Id" = b0."BenzeneBuyReceiptId"
+      ORDER BY b1."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
+      SELECT b."IncrementalId"
+      FROM "BenzeneBuyReceipts" AS b
+      WHERE date_trunc('day', b."Date", 'UTC') = @__date_Date_0
+      ORDER BY b."IncrementalId"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
+      SELECT b."IncrementalId"
+      FROM "BenzeneBuyReceipts" AS b
+      WHERE date_trunc('day', b."Date", 'UTC') = @__date_Date_0
+      ORDER BY b."IncrementalId"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__incrementalId_0='?' (DbType = Int32), @__parsedDate_Year_1='?' (DbType = Int32), @__parsedDate_Month_2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b1."Id", b1."Date", b1."IncrementalId", b1."MobilId", b1."MobilReceiptDate", b1."TotalValue", b0."Id", b0."Amount", b0."BenzeneBuyReceiptId", b0."EvaporationPercentage", b0."PricePerLiter", b0."ProductName", b0."Taxes", b0."TotalValue", b0."ValueOfEvaporation", b0."ValueOfTaxes"
+      FROM (
+          SELECT b."Id", b."Date", b."IncrementalId", b."MobilId", b."MobilReceiptDate", b."TotalValue"
+          FROM "BenzeneBuyReceipts" AS b
+          WHERE b."IncrementalId" = @__incrementalId_0 AND date_part('year', b."Date" AT TIME ZONE 'UTC')::int = @__parsedDate_Year_1 AND date_part('month', b."Date" AT TIME ZONE 'UTC')::int = @__parsedDate_Month_2
+          LIMIT 1
+      ) AS b1
+      LEFT JOIN "BenzeneRecipeProducts" AS b0 ON b1."Id" = b0."BenzeneBuyReceiptId"
+      ORDER BY b1."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__incrementalId_0='?' (DbType = Int32), @__parsedDate_Year_1='?' (DbType = Int32), @__parsedDate_Month_2='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b1."Id", b1."Date", b1."IncrementalId", b1."MobilId", b1."MobilReceiptDate", b1."TotalValue", b0."Id", b0."Amount", b0."BenzeneBuyReceiptId", b0."EvaporationPercentage", b0."PricePerLiter", b0."ProductName", b0."Taxes", b0."TotalValue", b0."ValueOfEvaporation", b0."ValueOfTaxes"
+      FROM (
+          SELECT b."Id", b."Date", b."IncrementalId", b."MobilId", b."MobilReceiptDate", b."TotalValue"
+          FROM "BenzeneBuyReceipts" AS b
+          WHERE b."IncrementalId" = @__incrementalId_0 AND date_part('year', b."Date" AT TIME ZONE 'UTC')::int = @__parsedDate_Year_1 AND date_part('month', b."Date" AT TIME ZONE 'UTC')::int = @__parsedDate_Month_2
+          LIMIT 1
+      ) AS b1
+      LEFT JOIN "BenzeneRecipeProducts" AS b0 ON b1."Id" = b0."BenzeneBuyReceiptId"
+      ORDER BY b1."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@__date_0='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
+      SELECT s0."Id", s0."Date", s0."OpenAmount", s0."TotalLiter92", s0."TotalLiter95", s0."TotalMoney", s0."TotalMoney92", s0."TotalMoney95", b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM (
+          SELECT s."Id", s."Date", s."OpenAmount", s."TotalLiter92", s."TotalLiter95", s."TotalMoney", s."TotalMoney92", s."TotalMoney95"
+          FROM "SellingReceipts" AS s
+          WHERE s."Date" = @__date_0
+          LIMIT 1
+      ) AS s0
+      LEFT JOIN "BenzeneGunCounters" AS b ON s0."Id" = b."SellingReceiptId"
+      ORDER BY s0."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
+      SELECT s0."Id", s0."Date", s0."OpenAmount", s0."TotalLiter92", s0."TotalLiter95", s0."TotalMoney", s0."TotalMoney92", s0."TotalMoney95", b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM (
+          SELECT s."Id", s."Date", s."OpenAmount", s."TotalLiter92", s."TotalLiter95", s."TotalMoney", s."TotalMoney92", s."TotalMoney95"
+          FROM "SellingReceipts" AS s
+          WHERE s."Date" = @__date_0
+          LIMIT 1
+      ) AS s0
+      LEFT JOIN "BenzeneGunCounters" AS b ON s0."Id" = b."SellingReceiptId"
+      ORDER BY s0."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__loginRequest_Email_0='?'], CommandType='Text', CommandTimeout='30']
+      SELECT u."Id", u."Email", u."Name", u."PasswordHash", u."Role"
+      FROM "Users" AS u
+      WHERE u."Email" = @__loginRequest_Email_0
+      LIMIT 2
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT s."Id", s."Date", s."OpenAmount", s."TotalLiter92", s."TotalLiter95", s."TotalMoney", s."TotalMoney92", s."TotalMoney95", b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "SellingReceipts" AS s
+      LEFT JOIN "BenzeneGunCounters" AS b ON s."Id" = b."SellingReceiptId"
+      ORDER BY s."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
+      SELECT s0."Id", s0."Date", s0."OpenAmount", s0."TotalLiter92", s0."TotalLiter95", s0."TotalMoney", s0."TotalMoney92", s0."TotalMoney95", b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM (
+          SELECT s."Id", s."Date", s."OpenAmount", s."TotalLiter92", s."TotalLiter95", s."TotalMoney", s."TotalMoney92", s."TotalMoney95"
+          FROM "SellingReceipts" AS s
+          WHERE s."Date" = @__date_0
+          LIMIT 1
+      ) AS s0
+      LEFT JOIN "BenzeneGunCounters" AS b ON s0."Id" = b."SellingReceiptId"
+      ORDER BY s0."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
+      SELECT s0."Id", s0."Date", s0."OpenAmount", s0."TotalLiter92", s0."TotalLiter95", s0."TotalMoney", s0."TotalMoney92", s0."TotalMoney95", b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM (
+          SELECT s."Id", s."Date", s."OpenAmount", s."TotalLiter92", s."TotalLiter95", s."TotalMoney", s."TotalMoney92", s."TotalMoney95"
+          FROM "SellingReceipts" AS s
+          WHERE s."Date" = @__date_0
+          LIMIT 1
+      ) AS s0
+      LEFT JOIN "BenzeneGunCounters" AS b ON s0."Id" = b."SellingReceiptId"
+      ORDER BY s0."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__loginRequest_Email_0='?'], CommandType='Text', CommandTimeout='30']
+      SELECT u."Id", u."Email", u."Name", u."PasswordHash", u."Role"
+      FROM "Users" AS u
+      WHERE u."Email" = @__loginRequest_Email_0
+      LIMIT 2
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."Name", b."PriceOfLitre", b."PriceOfSelling", b."RateOfEvaporation", b."RateOfTaxes", b."RateOfVats"
+      FROM "Benzenes" AS b
+      WHERE b."Name" = '92'
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."Name", b."PriceOfLitre", b."PriceOfSelling", b."RateOfEvaporation", b."RateOfTaxes", b."RateOfVats"
+      FROM "Benzenes" AS b
+      WHERE b."Name" = '95'
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = Int64), @p2='?' (DbType = Int64), @p3='?' (DbType = Int64), @p4='?' (DbType = Int64), @p5='?' (DbType = Int64), @p6='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "SellingReceipts" ("Date", "OpenAmount", "TotalLiter92", "TotalLiter95", "TotalMoney", "TotalMoney92", "TotalMoney95")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@p12='?' (DbType = Int32), @p7='?' (DbType = Int64), @p8='?' (DbType = Int64), @p9='?' (DbType = Int64), @p10='?' (DbType = Int32), @p11='?' (DbType = Int64), @p18='?' (DbType = Int32), @p13='?' (DbType = Int64), @p14='?' (DbType = Int64), @p15='?' (DbType = Int64), @p16='?' (DbType = Int32), @p17='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      UPDATE "BenzeneGunCounters" SET "EndRoundOneCount" = @p7, "EndRoundThreeCount" = @p8, "EndRoundTwoCount" = @p9, "SellingReceiptId" = @p10, "TotalSold" = @p11
+      WHERE "Id" = @p12;
+      UPDATE "BenzeneGunCounters" SET "EndRoundOneCount" = @p13, "EndRoundThreeCount" = @p14, "EndRoundTwoCount" = @p15, "SellingReceiptId" = @p16, "TotalSold" = @p17
+      WHERE "Id" = @p18;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
+      SELECT s0."Id", s0."Date", s0."OpenAmount", s0."TotalLiter92", s0."TotalLiter95", s0."TotalMoney", s0."TotalMoney92", s0."TotalMoney95", b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM (
+          SELECT s."Id", s."Date", s."OpenAmount", s."TotalLiter92", s."TotalLiter95", s."TotalMoney", s."TotalMoney92", s."TotalMoney95"
+          FROM "SellingReceipts" AS s
+          WHERE s."Date" = @__date_0
+          LIMIT 1
+      ) AS s0
+      LEFT JOIN "BenzeneGunCounters" AS b ON s0."Id" = b."SellingReceiptId"
+      ORDER BY s0."Id"
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__loginRequest_Email_0='?'], CommandType='Text', CommandTimeout='30']
+      SELECT u."Id", u."Email", u."Name", u."PasswordHash", u."Role"
+      FROM "Users" AS u
+      WHERE u."Email" = @__loginRequest_Email_0
+      LIMIT 2
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__gunCounterRequest_GunNumber_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."GunNumber" = @__gunCounterRequest_GunNumber_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."Name", b."PriceOfLitre", b."PriceOfSelling", b."RateOfEvaporation", b."RateOfTaxes", b."RateOfVats"
+      FROM "Benzenes" AS b
+      WHERE b."Name" = '92'
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."Name", b."PriceOfLitre", b."PriceOfSelling", b."RateOfEvaporation", b."RateOfTaxes", b."RateOfVats"
+      FROM "Benzenes" AS b
+      WHERE b."Name" = '95'
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?' (DbType = Int64), @p2='?' (DbType = Int64), @p3='?' (DbType = Int64), @p4='?' (DbType = Int64), @p5='?' (DbType = Int64), @p6='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "SellingReceipts" ("Date", "OpenAmount", "TotalLiter92", "TotalLiter95", "TotalMoney", "TotalMoney92", "TotalMoney95")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@p10='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = Int64), @p9='?' (DbType = Int64), @p14='?' (DbType = Int32), @p11='?' (DbType = Int32), @p12='?' (DbType = Int64), @p13='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p7, "StartCount" = @p8, "TotalSold" = @p9
+      WHERE "Id" = @p10;
+      UPDATE "BenzeneGunCounters" SET "SellingReceiptId" = @p11, "StartCount" = @p12, "TotalSold" = @p13
+      WHERE "Id" = @p14;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__loginRequest_Email_0='?'], CommandType='Text', CommandTimeout='30']
+      SELECT u."Id", u."Email", u."Name", u."PasswordHash", u."Role"
+      FROM "Users" AS u
+      WHERE u."Email" = @__loginRequest_Email_0
+      LIMIT 2
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."Id" = @__p_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      DELETE FROM "BenzeneGunCounters"
+      WHERE "Id" = @p0;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+      WHERE b."Id" = @__p_0
+      LIMIT 1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      DELETE FROM "BenzeneGunCounters"
+      WHERE "Id" = @p0;
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[@p0='?', @p1='?' (DbType = Int64), @p2='?' (DbType = Int64), @p3='?' (DbType = Int64), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = Int64), @p7='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "BenzeneGunCounters" ("BenzeneType", "EndRoundOneCount", "EndRoundThreeCount", "EndRoundTwoCount", "GunNumber", "SellingReceiptId", "StartCount", "TotalSold")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@p0='?', @p1='?' (DbType = Int64), @p2='?' (DbType = Int64), @p3='?' (DbType = Int64), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = Int64), @p7='?' (DbType = Int64)], CommandType='Text', CommandTimeout='30']
+      INSERT INTO "BenzeneGunCounters" ("BenzeneType", "EndRoundOneCount", "EndRoundThreeCount", "EndRoundTwoCount", "GunNumber", "SellingReceiptId", "StartCount", "TotalSold")
+      VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7)
+      RETURNING "Id";
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM "BenzeneGunCounters" AS b
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
+      SELECT s0."Id", s0."Date", s0."OpenAmount", s0."TotalLiter92", s0."TotalLiter95", s0."TotalMoney", s0."TotalMoney92", s0."TotalMoney95", b."Id", b."BenzeneType", b."EndRoundOneCount", b."EndRoundThreeCount", b."EndRoundTwoCount", b."GunNumber", b."SellingReceiptId", b."StartCount", b."TotalSold"
+      FROM (
+          SELECT s."Id", s."Date", s."OpenAmount", s."TotalLiter92", s."TotalLiter95", s."TotalMoney", s."TotalMoney92", s."TotalMoney95"
+          FROM "SellingReceipts" AS s
+          WHERE s."Date" = @__date_0
+          LIMIT 1
+      ) AS s0
+      LEFT JOIN "BenzeneGunCounters" AS b ON s0."Id" = b."SellingReceiptId"
+      ORDER BY s0."Id"
+info: Microsoft.Hosting.Lifetime[0]
+      Application is shutting down...

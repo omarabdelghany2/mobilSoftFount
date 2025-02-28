@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace mobileBackendsoftFount.Models
 {
+    
     public class SellingReceipt
     {
         [Key]
@@ -15,13 +16,15 @@ namespace mobileBackendsoftFount.Models
         // 🔹 List of BenzeneGunCounters
         public List<BenzeneGunCounter> BenzeneGunCounters { get; set; } = new List<BenzeneGunCounter>();
 
-        public long TotalLiter92 { get; set; }
-        public long TotalLiter95 { get; set; }
+        public long TotalLitre92 { get; set; }
+        public long TotalLitre95 { get; set; }
 
         public long TotalMoney92{get; set; }
         public long TotalMoney95{get; set; }
 
         public long TotalMoney{get; set; }
+            // 🔹 New attribute for OpenAmount
+    public long OpenAmount { get; set; }  // New column (big integer)
 
     }
 }

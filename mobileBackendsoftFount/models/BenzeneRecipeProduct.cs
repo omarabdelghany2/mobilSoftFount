@@ -10,7 +10,7 @@ namespace mobileBackendsoftFount.Models
         public float PricePerLiter { get; set; } // Price per liter
         public float EvaporationPercentage { get; set; } // Percentage of evaporation loss
         public float ValueOfEvaporation { get; set; } // Percentage of evaporation loss
-
+        public string ProductName { get; set; }  // ✅ Add this line
         public float Taxes { get; set; } // Applicable taxes
         public float ValueOfTaxes { get; set; } // Applicable taxes
         public float TotalValue{get; set; }

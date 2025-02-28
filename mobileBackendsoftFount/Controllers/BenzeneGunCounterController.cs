@@ -7,7 +7,7 @@ namespace mobileBackendsoftFount.Controllers
 {
     [Route("api/guncounters")]
     [ApiController]
-    [Authorize(Roles = "Admin")] // Only Admins can access these APIs
+    // [Authorize(Roles = "Admin")] // Only Admins can access these APIs
     public class BenzeneGunCounterController : ControllerBase
     {
         private readonly ApplicationDbContext _context;

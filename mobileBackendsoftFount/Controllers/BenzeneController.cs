@@ -9,7 +9,7 @@ namespace mobileBackendsoftFount.Controllers
 {
     [Route("api/benzene")]
     [ApiController]
-    [Authorize(Roles = "Admin")] // 🔹 Restrict access to Admins only
+    // [Authorize(Roles = "Admin")] // 🔹 Restrict access to Admins only
     public class BenzeneController : ControllerBase
     {
         private readonly ApplicationDbContext _context;

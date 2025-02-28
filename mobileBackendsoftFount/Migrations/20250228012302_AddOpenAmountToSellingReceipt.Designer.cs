@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using mobileBackendsoftFount.Data;
@@ -11,9 +12,11 @@ using mobileBackendsoftFount.Data;
 namespace mobileBackendsoftFount.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250228012302_AddOpenAmountToSellingReceipt")]
+    partial class AddOpenAmountToSellingReceipt
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -145,10 +148,6 @@ namespace mobileBackendsoftFount.Migrations
                     b.Property<float>("PricePerLiter")
                         .HasColumnType("real");
 
-                    b.Property<string>("ProductName")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<float>("Taxes")
                         .HasColumnType("real");
 
@@ -182,10 +181,10 @@ namespace mobileBackendsoftFount.Migrations
                     b.Property<long>("OpenAmount")
                         .HasColumnType("bigint");
 
-                    b.Property<long>("TotalLitre92")
+                    b.Property<long>("TotalLiter92")
                         .HasColumnType("bigint");
 
-                    b.Property<long>("TotalLitre95")
+                    b.Property<long>("TotalLiter95")
                         .HasColumnType("bigint");
 
                     b.Property<long>("TotalMoney")
@@ -198,9 +197,6 @@ namespace mobileBackendsoftFount.Migrations
                         .HasColumnType("bigint");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("Date")
-                        .IsUnique();
 
                     b.ToTable("SellingReceipts");
                 });

@@ -11,7 +11,7 @@ namespace mobileBackendsoftFount.Controllers
 {
     [Route("api/buy-receipts")]
     [ApiController]
-    [Authorize(Roles = "Admin")] // 🔹 Restrict access to Admins only
+    // [Authorize(Roles = "Admin")] // 🔹 Restrict access to Admins only
     public class BenzeneBuyReceiptController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
@@ -79,6 +79,28 @@ namespace mobileBackendsoftFount.Controllers
         }
 
 
+
+
+        [HttpGet("{yearMonth}/{incrementalId}")]
+        public async Task<IActionResult> GetReceiptByIncrementalIdAndDate(string yearMonth, int incrementalId)
+        {
+            if (!DateTime.TryParseExact(yearMonth, "yyyy-MM", null, System.Globalization.DateTimeStyles.None, out DateTime parsedDate))
+            {
+                return BadRequest("Invalid date format. Use 'yyyy-MM'.");
+            }
+
+            var receipt = await _context.BenzeneBuyReceipts
+                .Include(r => r.Products) // Ensure products are loaded
+                .FirstOrDefaultAsync(r => r.IncrementalId == incrementalId && 
+                                        r.Date.Year == parsedDate.Year &&
+                                        r.Date.Month == parsedDate.Month);
+
+            if (receipt == null)
+                return NotFound("No receipt found with the given IncrementalId and Date.");
+
+            return Ok(receipt);
+        }
+
         // 🔹 4️⃣ Delete a Benzene Buy Receipt by ID
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeleteReceipt(int id)
@@ -125,6 +147,7 @@ namespace mobileBackendsoftFount.Controllers
 
         // Find the receipt based on Date and IncrementalId
         var receipt = await _context.BenzeneBuyReceipts
+            .Include(r => r.Products) // Ensure products are loaded
             .FirstOrDefaultAsync(r => r.Date.Year == request.Date.Year &&
                                     r.Date.Month == request.Date.Month &&
                                     r.IncrementalId == request.IncrementalId);
@@ -132,59 +155,88 @@ namespace mobileBackendsoftFount.Controllers
         if (receipt == null)
             return NotFound("Receipt not found.");
 
-        // Add new products to the receipt
-        var products = request.Products.Select(p => new BenzeneRecipeProduct
+        // Add new products to the receipt and calculate total value
+        var products = request.Products.Select(p => 
         {
-            Amount = p.Amount,
-            PricePerLiter = p.PricePerLiter,
-            EvaporationPercentage = p.EvaporationPercentage,
-            Taxes = p.Taxes,
-            BenzeneBuyReceiptId = receipt.Id  // Link to the receipt
+            // Calculate product total value
+            float valueBeforeEvaporation = p.Amount * p.PricePerLiter;
+            float valueOfEvaporation = valueBeforeEvaporation * (p.EvaporationPercentage / 100);
+            float totalProductValue = valueBeforeEvaporation - valueOfEvaporation + p.Taxes;
+
+            return new BenzeneRecipeProduct
+            {
+                ProductName = p.ProductName,  // ✅ Added product name
+                Amount = p.Amount,
+                PricePerLiter = p.PricePerLiter,
+                EvaporationPercentage = p.EvaporationPercentage,
+                Taxes = p.Taxes,
+                ValueOfEvaporation = valueOfEvaporation,  // Save calculated evaporation
+                ValueOfTaxes = p.Taxes,  // Assuming taxes are pre-determined
+                TotalValue = totalProductValue,  // ✅ Save calculated total value
+                BenzeneBuyReceiptId = receipt.Id
+            };
         }).ToList();
 
         _context.BenzeneRecipeProducts.AddRange(products);
         await _context.SaveChangesAsync();
 
-        return Ok(new { message = "Products added successfully", products });
+        // ✅ **Recalculate the total value of the receipt**
+        receipt.TotalValue = products.Sum(p => p.TotalValue);
+
+        _context.BenzeneBuyReceipts.Update(receipt);
+        await _context.SaveChangesAsync();
+
+        return Ok(new { message = "Products added successfully", receipt });
     }
 
-    [HttpPut("edit-product/{productId}")]
-    public async Task<IActionResult> EditProductInReceipt(int productId, [FromBody] EditProductRequest request)
+
+    [HttpPut("edit-products")]
+    public async Task<IActionResult> EditProductsInReceipt([FromBody] EditProductsRequest request)
     {
-        if (request == null)
+        if (request == null || request.Products == null || request.Products.Count == 0)
             return BadRequest("Invalid data.");
 
-        var product = await _context.BenzeneRecipeProducts.FindAsync(productId);
-        if (product == null)
-            return NotFound("Product not found.");
+        // Convert the date to UTC
+        request.Date = DateTime.SpecifyKind(request.Date, DateTimeKind.Utc);
 
-        // Update product details
-        product.Amount = request.Amount;
-        product.PricePerLiter = request.PricePerLiter;
-        product.EvaporationPercentage = request.EvaporationPercentage;
-        product.Taxes = request.Taxes;
+        // Find the receipt based on Date and IncrementalId
+        var receipt = await _context.BenzeneBuyReceipts
+            .Include(r => r.Products)
+            .FirstOrDefaultAsync(r => r.Date.Year == request.Date.Year &&
+                                    r.Date.Month == request.Date.Month &&
+                                    r.IncrementalId == request.IncrementalId);
 
-        _context.BenzeneRecipeProducts.Update(product);
+        if (receipt == null)
+            return NotFound("Receipt not found.");
+
+        // Update products in the receipt
+        foreach (var productRequest in request.Products)
+        {
+            var product = receipt.Products.FirstOrDefault(p => p.Id == productRequest.Id);
+            if (product != null)
+            {
+                product.ProductName = productRequest.ProductName;
+                product.Amount = productRequest.Amount;
+                product.PricePerLiter = productRequest.PricePerLiter;
+                product.EvaporationPercentage = productRequest.EvaporationPercentage;
+                product.Taxes = productRequest.Taxes;
+
+                // Recalculate values
+                float valueBeforeEvaporation = product.Amount * product.PricePerLiter;
+                product.ValueOfEvaporation = valueBeforeEvaporation * (product.EvaporationPercentage / 100);
+                product.TotalValue = valueBeforeEvaporation - product.ValueOfEvaporation + product.Taxes;
+            }
+        }
+
+        // Recalculate total receipt value
+        receipt.TotalValue = receipt.Products.Sum(p => p.TotalValue);
+
+        _context.BenzeneBuyReceipts.Update(receipt);
         await _context.SaveChangesAsync();
 
-        return Ok(new { message = "Product updated successfully", product });
+        return Ok(new { message = "Products updated successfully", receipt });
     }
 
-
-    [HttpDelete("delete-product/{productId}")]
-    public async Task<IActionResult> DeleteProductFromReceipt(int productId)
-    {
-        var product = await _context.BenzeneRecipeProducts.FindAsync(productId);
-        if (product == null)
-            return NotFound("Product not found.");
-
-        _context.BenzeneRecipeProducts.Remove(product);
-        await _context.SaveChangesAsync();
-
-        return Ok(new { message = "Product deleted successfully" });
-    }
-
-        
 
     }
 
@@ -197,19 +249,21 @@ public class AddProductsRequest
 
 public class ProductRequest
 {
+    public string ProductName { get; set; }  // ✅ Added Product Name
     public float Amount { get; set; }
     public float PricePerLiter { get; set; }
     public float EvaporationPercentage { get; set; }
     public float Taxes { get; set; }
 }
 
-public class EditProductRequest
-{
-    public float Amount { get; set; }
-    public float PricePerLiter { get; set; }
-    public float EvaporationPercentage { get; set; }
-    public float Taxes { get; set; }
-}
+
+    // public class EditProductRequest
+    // {
+    //     public float Amount { get; set; }
+    //     public float PricePerLiter { get; set; }
+    //     public float EvaporationPercentage { get; set; }
+    //     public float Taxes { get; set; }
+    // }
 
 
     public class BenzeneBuyReceiptRequest
@@ -218,4 +272,27 @@ public class EditProductRequest
         public DateTime MobilReceiptDate { get; set; }
         public DateTime Date { get; set; } // Should be in yy/MM format
     }
+
+
+
+public class EditProductsRequest
+{
+    public DateTime Date { get; set; } // Year and Month
+    public int IncrementalId { get; set; } // Receipt ID within that month
+    public List<EditProductDto> Products { get; set; }
+}
+
+
+public class EditProductDto
+{
+    public int Id { get; set; }  // ID of the product being edited
+    public string ProductName { get; set; }  
+    public float Amount { get; set; }
+    public float PricePerLiter { get; set; }
+    public float EvaporationPercentage { get; set; }
+    public float Taxes { get; set; }
+}
+
+
+
 }
