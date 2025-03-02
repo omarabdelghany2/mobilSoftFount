@@ -240,22 +240,20 @@ namespace mobileBackendsoftFount.Controllers
 
         
 
-    // 🔹 Request Model for input
-    public class SellingReceiptRequest
-    {
-        public DateTime Date { get; set; }
-        public List<BenzeneGunCounterRequest> BenzeneGunCounters { get; set; }
-        
-        public long OpenAmount { get; set; } // New property
-    }
+        // 🔹 Request Model for input
+        public class SellingReceiptRequest
+        {
+            public DateTime Date { get; set; }
+            public List<BenzeneGunCounterRequest> BenzeneGunCounters { get; set; }
+            public long OpenAmount { get; set; } // New property
+        }
 
-
-    public class BenzeneGunCounterRequest
-    {
-        public int GunNumber { get; set; }
-        public long EndRoundOneCount { get; set; }
-        public long EndRoundTwoCount { get; set; }
-        public long EndRoundThreeCount { get; set; }
+        public class BenzeneGunCounterRequest
+        {
+            public int GunNumber { get; set; }
+            public long EndRoundOneCount { get; set; }
+            public long EndRoundTwoCount { get; set; }
+            public long EndRoundThreeCount { get; set; }
+        }
     }
-}
 }

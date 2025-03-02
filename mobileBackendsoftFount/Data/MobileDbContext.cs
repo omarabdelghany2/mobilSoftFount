@@ -16,6 +16,10 @@ public class ApplicationDbContext : DbContext
     public DbSet<SellingReceipt> SellingReceipts { get; set; }
     public DbSet<BenzeneBuyReceipt> BenzeneBuyReceipts { get; set; } // New model
     public DbSet<BenzeneRecipeProduct> BenzeneRecipeProducts { get; set; } 
+    public DbSet<OilSupplier> OilSuppliers { get; set; } 
+    public DbSet<Oil> Oils { get; set; } 
+
+    
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -32,6 +36,25 @@ public class ApplicationDbContext : DbContext
         modelBuilder.Entity<SellingReceipt>()
             .HasIndex(r => r.Date)
             .IsUnique(); // 🔹 Ensure SellingReceipt.Date is unique  
+
+        modelBuilder.Entity<OilSupplier>()
+            .HasIndex(c=>c.Name)
+            .IsUnique();    
+
+        modelBuilder.Entity<Oil>()
+            .HasIndex(o => o.Name)
+            .IsUnique();
+
+        modelBuilder.Entity<Oil>()
+            .HasIndex(o => o.Order)
+            .IsUnique();
+
+
+        modelBuilder.Entity<Oil>()
+            .HasOne(o => o.Supplier)
+            .WithMany(s => s.Oils)
+            .HasForeignKey(o => o.SupplierId)
+            .OnDelete(DeleteBehavior.Cascade); // Ensure cascade delete   
     }
 
 
