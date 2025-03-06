@@ -211,6 +211,159 @@ namespace mobileBackendsoftFount.Migrations
                     b.ToTable("Oils");
                 });
 
+            modelBuilder.Entity("mobileBackendsoftFount.Models.OilBuyProduct", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("numeric");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int?>("OilBuyReceiptId")
+                        .HasColumnType("integer");
+
+                    b.Property<decimal>("PriceOfBuy")
+                        .HasColumnType("numeric");
+
+                    b.Property<int>("SupplierId")
+                        .HasColumnType("integer");
+
+                    b.Property<decimal>("Value")
+                        .HasColumnType("numeric");
+
+                    b.Property<decimal>("Weight")
+                        .HasColumnType("numeric");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OilBuyReceiptId");
+
+                    b.ToTable("OilBuyProducts");
+                });
+
+            modelBuilder.Entity("mobileBackendsoftFount.Models.OilBuyReceipt", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<int>("MonthlyBuyIndex")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime>("MonthlyDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<int>("Round")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("SupplierId")
+                        .HasColumnType("integer");
+
+                    b.Property<decimal>("TotalValue")
+                        .HasColumnType("numeric");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Date")
+                        .IsUnique();
+
+                    b.ToTable("OilBuyReceipts");
+                });
+
+            modelBuilder.Entity("mobileBackendsoftFount.Models.OilSellProduct", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<decimal>("BoughtAmount")
+                        .HasColumnType("numeric");
+
+                    b.Property<int>("BoughtRound")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int?>("OilSellRecipeId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("OilSupplierId")
+                        .HasColumnType("integer");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("numeric");
+
+                    b.Property<decimal>("ReceiveAmount")
+                        .HasColumnType("numeric");
+
+                    b.Property<decimal>("RoundOneAmount")
+                        .HasColumnType("numeric");
+
+                    b.Property<decimal>("RoundThreeAmount")
+                        .HasColumnType("numeric");
+
+                    b.Property<decimal>("RoundTwoAmount")
+                        .HasColumnType("numeric");
+
+                    b.Property<decimal>("SoldAmount")
+                        .HasColumnType("numeric");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
+
+                    b.HasIndex("OilSellRecipeId");
+
+                    b.HasIndex("OilSupplierId");
+
+                    b.ToTable("OilSellProducts");
+                });
+
+            modelBuilder.Entity("mobileBackendsoftFount.Models.OilSellRecipe", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("OilSupplierId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Date")
+                        .IsUnique();
+
+                    b.HasIndex("OilSupplierId");
+
+                    b.ToTable("OilSellRecipes");
+                });
+
             modelBuilder.Entity("mobileBackendsoftFount.Models.OilSupplier", b =>
                 {
                     b.Property<int>("Id")
@@ -326,9 +479,52 @@ namespace mobileBackendsoftFount.Migrations
                     b.Navigation("Supplier");
                 });
 
+            modelBuilder.Entity("mobileBackendsoftFount.Models.OilBuyProduct", b =>
+                {
+                    b.HasOne("mobileBackendsoftFount.Models.OilBuyReceipt", null)
+                        .WithMany("OilBuyProducts")
+                        .HasForeignKey("OilBuyReceiptId");
+                });
+
+            modelBuilder.Entity("mobileBackendsoftFount.Models.OilSellProduct", b =>
+                {
+                    b.HasOne("mobileBackendsoftFount.Models.OilSellRecipe", null)
+                        .WithMany("OilSellProducts")
+                        .HasForeignKey("OilSellRecipeId");
+
+                    b.HasOne("mobileBackendsoftFount.Models.OilSupplier", "OilSupplier")
+                        .WithMany()
+                        .HasForeignKey("OilSupplierId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("OilSupplier");
+                });
+
+            modelBuilder.Entity("mobileBackendsoftFount.Models.OilSellRecipe", b =>
+                {
+                    b.HasOne("mobileBackendsoftFount.Models.OilSupplier", "OilSupplier")
+                        .WithMany()
+                        .HasForeignKey("OilSupplierId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("OilSupplier");
+                });
+
             modelBuilder.Entity("mobileBackendsoftFount.Models.BenzeneBuyReceipt", b =>
                 {
                     b.Navigation("Products");
+                });
+
+            modelBuilder.Entity("mobileBackendsoftFount.Models.OilBuyReceipt", b =>
+                {
+                    b.Navigation("OilBuyProducts");
+                });
+
+            modelBuilder.Entity("mobileBackendsoftFount.Models.OilSellRecipe", b =>
+                {
+                    b.Navigation("OilSellProducts");
                 });
 
             modelBuilder.Entity("mobileBackendsoftFount.Models.OilSupplier", b =>

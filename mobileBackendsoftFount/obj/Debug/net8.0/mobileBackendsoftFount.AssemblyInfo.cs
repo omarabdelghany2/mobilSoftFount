@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("mobileBackendsoftFount")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b8b9ba0af0163826d62213f176ae4823be548696")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bf74b34771f7fc2c23cb89127217f48eba43d0f7")]
 [assembly: System.Reflection.AssemblyProductAttribute("mobileBackendsoftFount")]
 [assembly: System.Reflection.AssemblyTitleAttribute("mobileBackendsoftFount")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
