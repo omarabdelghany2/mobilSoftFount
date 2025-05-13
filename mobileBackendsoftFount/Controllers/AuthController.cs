@@ -7,10 +7,13 @@ using mobileBackendsoftFount.Data;
 using mobileBackendsoftFount.Models;
 using BCrypt.Net;
 
+
 namespace mobileBackendsoftFount.Controllers;
 
 [Route("api/auth")]
 [ApiController]
+    
+// [Authorize(Roles = "Admin")] // 🔹 Restrict access to Admins only
 public class AuthController : ControllerBase
 {
     private readonly ApplicationDbContext _context;
@@ -52,32 +55,65 @@ public class AuthController : ControllerBase
             return Unauthorized("Invalid credentials.");
 
         var token = GenerateJwtToken(user);
-        return Ok(new { Token = token });
+
+        return Ok(new 
+        { 
+            Token = token, 
+            Role = user.Role, 
+            Email = user.Email 
+        });
     }
+
 
     // 🔹 Generate JWT Token
+    // private string GenerateJwtToken(User user)
+    // {
+    //     var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
+    //     var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+    //     var claims = new[]
+    //     {
+    //         new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
+    //         new Claim(JwtRegisteredClaimNames.Email, user.Email),
+    //         new Claim(ClaimTypes.Role, user.Role),
+    //         new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+    //     };
+
+    //     var token = new JwtSecurityToken(
+    //         issuer: _configuration["Jwt:Issuer"],
+    //         audience: _configuration["Jwt:Audience"],
+    //         claims: claims,
+    //         expires: DateTime.UtcNow.AddHours(1),
+    //         signingCredentials: creds
+    //     );
+
+    //     return new JwtSecurityTokenHandler().WriteToken(token);
+    // }
+
+
     private string GenerateJwtToken(User user)
+{
+    var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
+    var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+    var claims = new[]
     {
-        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
-        var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-        var claims = new[]
-        {
-            new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
-            new Claim(JwtRegisteredClaimNames.Email, user.Email),
-            new Claim(ClaimTypes.Role, user.Role),
-            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
-        };
+        new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
+        new Claim(JwtRegisteredClaimNames.Email, user.Email),
+        new Claim("role", user.Role), // Explicitly setting "Role" as the claim type
+        new Claim("name",user.Name),
+        new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+    };
 
-        var token = new JwtSecurityToken(
-            issuer: _configuration["Jwt:Issuer"],
-            audience: _configuration["Jwt:Audience"],
-            claims: claims,
-            expires: DateTime.UtcNow.AddHours(1),
-            signingCredentials: creds
-        );
+    var token = new JwtSecurityToken(
+        issuer: _configuration["Jwt:Issuer"],
+        audience: _configuration["Jwt:Audience"],
+        claims: claims,
+        expires: DateTime.UtcNow.AddHours(1),
+        signingCredentials: creds
+    );
 
-        return new JwtSecurityTokenHandler().WriteToken(token);
-    }
+    return new JwtSecurityTokenHandler().WriteToken(token);
+}
+
 }
 
 // 🔹 Request Models

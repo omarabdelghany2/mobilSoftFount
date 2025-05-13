@@ -17,10 +17,132 @@ namespace mobileBackendsoftFount.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.2")
+                .HasAnnotation("ProductVersion", "9.0.4")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
+
+            modelBuilder.Entity("CategorySubCategory", b =>
+                {
+                    b.Property<int>("CategoriesId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("SubCategoriesId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("CategoriesId", "SubCategoriesId");
+
+                    b.HasIndex("SubCategoriesId");
+
+                    b.ToTable("CategorySubCategory");
+                });
+
+            modelBuilder.Entity("mobileBackendsoftFount.Models.AccountInvestigationMember", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("AccountInvestigationReportId")
+                        .HasColumnType("integer");
+
+                    b.Property<decimal>("Balance")
+                        .HasColumnType("numeric");
+
+                    b.Property<decimal>("Benzene92Litre")
+                        .HasColumnType("numeric");
+
+                    b.Property<decimal>("Benzene95Litre")
+                        .HasColumnType("numeric");
+
+                    b.Property<string>("Comment")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<decimal>("DepostMoney")
+                        .HasColumnType("numeric");
+
+                    b.Property<decimal>("EvaporationMoney")
+                        .HasColumnType("numeric");
+
+                    b.Property<decimal>("ReciptTotalMoney")
+                        .HasColumnType("numeric");
+
+                    b.Property<decimal>("Taxes92")
+                        .HasColumnType("numeric");
+
+                    b.Property<decimal>("Taxes95")
+                        .HasColumnType("numeric");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<decimal>("VatesMoney")
+                        .HasColumnType("numeric");
+
+                    b.Property<string>("name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AccountInvestigationReportId");
+
+                    b.ToTable("AccountInvestigationMembers");
+                });
+
+            modelBuilder.Entity("mobileBackendsoftFount.Models.AccountInvestigationReport", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<decimal>("Balance")
+                        .HasColumnType("numeric");
+
+                    b.Property<decimal>("BalanceOfStart")
+                        .HasColumnType("numeric");
+
+                    b.Property<decimal>("TotalAdjustmentMoney")
+                        .HasColumnType("numeric");
+
+                    b.Property<decimal>("TotalBuyReceiptMoney")
+                        .HasColumnType("numeric");
+
+                    b.Property<decimal>("TotalDeposit")
+                        .HasColumnType("numeric");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AccountInvestigationReports");
+                });
+
+            modelBuilder.Entity("mobileBackendsoftFount.Models.Balance", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<decimal>("BalanceAmount")
+                        .HasColumnType("numeric");
+
+                    b.Property<DateTime>("DateTime")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Balances");
+                });
 
             modelBuilder.Entity("mobileBackendsoftFount.Models.Benzene", b =>
                 {
@@ -82,7 +204,41 @@ namespace mobileBackendsoftFount.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("MobilReceiptDate")
+                        .IsUnique();
+
                     b.ToTable("BenzeneBuyReceipts");
+                });
+
+            modelBuilder.Entity("mobileBackendsoftFount.Models.BenzeneCalibration", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
+
+                    b.Property<double>("TotalMoney92")
+                        .HasColumnType("double precision");
+
+                    b.Property<double>("TotalMoney95")
+                        .HasColumnType("double precision");
+
+                    b.Property<double>("amount92")
+                        .HasColumnType("double precision");
+
+                    b.Property<double>("amount95")
+                        .HasColumnType("double precision");
+
+                    b.Property<DateTime>("date")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("date")
+                        .IsUnique();
+
+                    b.ToTable("BenzeneCalibrations");
                 });
 
             modelBuilder.Entity("mobileBackendsoftFount.Models.BenzeneGunCounter", b =>
@@ -168,6 +324,224 @@ namespace mobileBackendsoftFount.Migrations
                     b.ToTable("BenzeneRecipeProducts");
                 });
 
+            modelBuilder.Entity("mobileBackendsoftFount.Models.BenzeneTank", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
+
+                    b.Property<DateTime>("date")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<double>("tankOne92ATG")
+                        .HasColumnType("double precision");
+
+                    b.Property<double>("tankOne95ATG")
+                        .HasColumnType("double precision");
+
+                    b.Property<double>("tankTwo92ATG")
+                        .HasColumnType("double precision");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("date")
+                        .IsUnique();
+
+                    b.ToTable("BenzeneTanks");
+                });
+
+            modelBuilder.Entity("mobileBackendsoftFount.Models.Category", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Categories");
+                });
+
+            modelBuilder.Entity("mobileBackendsoftFount.Models.ClientService", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CategoryName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int?>("ServiceSellProductId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("SubCategoryName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<decimal>("SubCategoryPrice")
+                        .HasColumnType("numeric");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ServiceSellProductId");
+
+                    b.ToTable("ClientServices");
+                });
+
+            modelBuilder.Entity("mobileBackendsoftFount.Models.DisabilityAndIncreaseReport", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("BenzeneType")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("ReportDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ReportDate");
+
+                    b.ToTable("DisabilityAndIncreaseReports");
+                });
+
+            modelBuilder.Entity("mobileBackendsoftFount.Models.Expense", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("BankName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Comment")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<int>("ExpenseCategoryId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Round")
+                        .HasColumnType("integer");
+
+                    b.Property<decimal>("Value")
+                        .HasColumnType("numeric");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ExpenseCategoryId");
+
+                    b.ToTable("Expenses");
+                });
+
+            modelBuilder.Entity("mobileBackendsoftFount.Models.ExpenseCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("DeductionFromProfit")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
+
+                    b.ToTable("ExpenseCategories");
+                });
+
+            modelBuilder.Entity("mobileBackendsoftFount.Models.MinistryOfSupplyLetter", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Introduction")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("MonthlyDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MonthlyDate")
+                        .IsUnique();
+
+                    b.ToTable("MinistryOfSupplyLetters");
+                });
+
+            modelBuilder.Entity("mobileBackendsoftFount.Models.MinistryOfSupplyLetterMember", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<decimal>("CurrentBalance")
+                        .HasColumnType("numeric");
+
+                    b.Property<decimal>("IncomeAmount")
+                        .HasColumnType("numeric");
+
+                    b.Property<int>("MinistryOfSupplyLetterId")
+                        .HasColumnType("integer");
+
+                    b.Property<decimal>("SoldAmount")
+                        .HasColumnType("numeric");
+
+                    b.Property<decimal>("StartBalance")
+                        .HasColumnType("numeric");
+
+                    b.Property<decimal>("Total")
+                        .HasColumnType("numeric");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MinistryOfSupplyLetterId");
+
+                    b.ToTable("MinistryOfSupplyLetterMembers");
+                });
+
             modelBuilder.Entity("mobileBackendsoftFount.Models.Oil", b =>
                 {
                     b.Property<int>("Id")
@@ -178,6 +552,9 @@ namespace mobileBackendsoftFount.Migrations
 
                     b.Property<int>("Amount")
                         .HasColumnType("integer");
+
+                    b.Property<bool>("Enable")
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -209,6 +586,41 @@ namespace mobileBackendsoftFount.Migrations
                     b.HasIndex("SupplierId");
 
                     b.ToTable("Oils");
+                });
+
+            modelBuilder.Entity("mobileBackendsoftFount.Models.OilBalanceProduct", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("numeric");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("OilStorageBalanceReportId")
+                        .HasColumnType("integer");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("numeric");
+
+                    b.Property<decimal>("PriceOfSell")
+                        .HasColumnType("numeric");
+
+                    b.Property<string>("SupplierName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OilStorageBalanceReportId");
+
+                    b.ToTable("OilBalanceProducts");
                 });
 
             modelBuilder.Entity("mobileBackendsoftFount.Models.OilBuyProduct", b =>
@@ -265,6 +677,9 @@ namespace mobileBackendsoftFount.Migrations
                     b.Property<DateTime>("MonthlyDate")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<int?>("OilAccountBalanceId")
+                        .HasColumnType("integer");
+
                     b.Property<int>("Round")
                         .HasColumnType("integer");
 
@@ -278,6 +693,8 @@ namespace mobileBackendsoftFount.Migrations
 
                     b.HasIndex("Date")
                         .IsUnique();
+
+                    b.HasIndex("OilAccountBalanceId");
 
                     b.ToTable("OilBuyReceipts");
                 });
@@ -300,7 +717,7 @@ namespace mobileBackendsoftFount.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int?>("OilSellRecipeId")
+                    b.Property<int>("OilSellRecipeId")
                         .HasColumnType("integer");
 
                     b.Property<int>("OilSupplierId")
@@ -326,9 +743,6 @@ namespace mobileBackendsoftFount.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Name")
-                        .IsUnique();
-
                     b.HasIndex("OilSellRecipeId");
 
                     b.HasIndex("OilSupplierId");
@@ -351,17 +765,43 @@ namespace mobileBackendsoftFount.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("OilSupplierId")
-                        .HasColumnType("integer");
+                    b.Property<decimal>("TotalPrice")
+                        .HasColumnType("numeric");
 
                     b.HasKey("Id");
 
                     b.HasIndex("Date")
                         .IsUnique();
 
-                    b.HasIndex("OilSupplierId");
-
                     b.ToTable("OilSellRecipes");
+                });
+
+            modelBuilder.Entity("mobileBackendsoftFount.Models.OilStorageBalanceReport", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<decimal>("Profit")
+                        .HasColumnType("numeric");
+
+                    b.Property<decimal>("StoragePrice")
+                        .HasColumnType("numeric");
+
+                    b.Property<decimal>("StoragePriceOfSell")
+                        .HasColumnType("numeric");
+
+                    b.Property<decimal>("TotalBalance")
+                        .HasColumnType("numeric");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("OilStorageBalanceReports");
                 });
 
             modelBuilder.Entity("mobileBackendsoftFount.Models.OilSupplier", b =>
@@ -384,6 +824,222 @@ namespace mobileBackendsoftFount.Migrations
                     b.ToTable("OilSuppliers");
                 });
 
+            modelBuilder.Entity("mobileBackendsoftFount.Models.OilWorker", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("MobileNumber")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("NationalID")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("OilWorkers");
+                });
+
+            modelBuilder.Entity("mobileBackendsoftFount.Models.ReportTable1", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<decimal>("Calibrations")
+                        .HasColumnType("numeric");
+
+                    b.Property<int>("DisabilityAndIncreaseReportId")
+                        .HasColumnType("integer");
+
+                    b.Property<decimal>("EndingBalanceOfDay")
+                        .HasColumnType("numeric");
+
+                    b.Property<decimal>("ReceivingOfBuyReceipt")
+                        .HasColumnType("numeric");
+
+                    b.Property<decimal>("SellingInGunCounters")
+                        .HasColumnType("numeric");
+
+                    b.Property<decimal>("StartingBalanceOfDay")
+                        .HasColumnType("numeric");
+
+                    b.Property<int>("day")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DisabilityAndIncreaseReportId");
+
+                    b.ToTable("ReportTables1");
+                });
+
+            modelBuilder.Entity("mobileBackendsoftFount.Models.ReportTable2", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("DisabilityAndIncreaseReportId")
+                        .HasColumnType("integer");
+
+                    b.Property<decimal>("TotalAmountInTankATG")
+                        .HasColumnType("numeric");
+
+                    b.Property<decimal>("TotalAmountWithoutWater")
+                        .HasColumnType("numeric");
+
+                    b.Property<decimal>("WaterAmount")
+                        .HasColumnType("numeric");
+
+                    b.Property<decimal>("WaterAmountInCM")
+                        .HasColumnType("numeric");
+
+                    b.Property<int>("day")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DisabilityAndIncreaseReportId");
+
+                    b.ToTable("ReportTables2");
+                });
+
+            modelBuilder.Entity("mobileBackendsoftFount.Models.ReportTable3", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<decimal>("DifferenceBetweenReceiptAndMeasure")
+                        .HasColumnType("numeric");
+
+                    b.Property<decimal>("DifferenceInAmountATG")
+                        .HasColumnType("numeric");
+
+                    b.Property<decimal>("DifferencePercentage")
+                        .HasColumnType("numeric");
+
+                    b.Property<int>("DisabilityAndIncreaseReportId")
+                        .HasColumnType("integer");
+
+                    b.Property<decimal>("Total")
+                        .HasColumnType("numeric");
+
+                    b.Property<decimal>("TotalPercentage")
+                        .HasColumnType("numeric");
+
+                    b.Property<int>("day")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DisabilityAndIncreaseReportId");
+
+                    b.ToTable("ReportTables3");
+                });
+
+            modelBuilder.Entity("mobileBackendsoftFount.Models.ReportTable4", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("DisabilityAndIncreaseReportId")
+                        .HasColumnType("integer");
+
+                    b.Property<decimal>("PercentageCumulative")
+                        .HasColumnType("numeric");
+
+                    b.Property<decimal>("SellingInGunCountersCumulative")
+                        .HasColumnType("numeric");
+
+                    b.Property<decimal>("TotalCumulative")
+                        .HasColumnType("numeric");
+
+                    b.Property<bool>("Valid")
+                        .HasColumnType("boolean");
+
+                    b.Property<int>("day")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DisabilityAndIncreaseReportId");
+
+                    b.ToTable("ReportTables4");
+                });
+
+            modelBuilder.Entity("mobileBackendsoftFount.Models.Revenue", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("BankName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Comment")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<int>("RevenueCategoryId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Round")
+                        .HasColumnType("integer");
+
+                    b.Property<decimal>("Value")
+                        .HasColumnType("numeric");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RevenueCategoryId");
+
+                    b.ToTable("Revenues");
+                });
+
+            modelBuilder.Entity("mobileBackendsoftFount.Models.RevenueCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("RevenueCategories");
+                });
+
             modelBuilder.Entity("mobileBackendsoftFount.Models.SellingReceipt", b =>
                 {
                     b.Property<int>("Id")
@@ -395,7 +1051,10 @@ namespace mobileBackendsoftFount.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<long>("OpenAmount")
+                    b.Property<long>("OpenAmount92")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("OpenAmount95")
                         .HasColumnType("bigint");
 
                     b.Property<long>("TotalLitre92")
@@ -419,6 +1078,88 @@ namespace mobileBackendsoftFount.Migrations
                         .IsUnique();
 
                     b.ToTable("SellingReceipts");
+                });
+
+            modelBuilder.Entity("mobileBackendsoftFount.Models.ServiceSellProduct", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ClientCarModel")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("ClientCarNumber")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("ClientName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("ClientPhone")
+                        .HasColumnType("text");
+
+                    b.Property<int>("ServiceSellReceiptId")
+                        .HasColumnType("integer");
+
+                    b.Property<decimal>("Value")
+                        .HasColumnType("numeric");
+
+                    b.Property<string>("Worker")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ServiceSellReceiptId");
+
+                    b.ToTable("ServiceSellProducts");
+                });
+
+            modelBuilder.Entity("mobileBackendsoftFount.Models.ServiceSellReceipt", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<decimal>("TotalPrice")
+                        .HasColumnType("numeric");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ServiceSellReceipts");
+                });
+
+            modelBuilder.Entity("mobileBackendsoftFount.Models.SubCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<double>("Price")
+                        .HasColumnType("double precision");
+
+                    b.Property<double>("PriceOfBuy")
+                        .HasColumnType("double precision");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SubCategories");
                 });
 
             modelBuilder.Entity("mobileBackendsoftFount.Models.User", b =>
@@ -450,6 +1191,175 @@ namespace mobileBackendsoftFount.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("mobileBackendsoftFount.Models.benzeneAdjustment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<float>("amount")
+                        .HasColumnType("real");
+
+                    b.Property<string>("comment")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("date")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<bool>("increase")
+                        .HasColumnType("boolean");
+
+                    b.Property<int>("monthlyId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("date")
+                        .IsUnique();
+
+                    b.ToTable("BenzeneAdjustments");
+                });
+
+            modelBuilder.Entity("mobileBackendsoftFount.Models.benzeneDeposit", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<float>("amount")
+                        .HasColumnType("real");
+
+                    b.Property<string>("comment")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("date")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<int>("monthlyId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("date")
+                        .IsUnique();
+
+                    b.ToTable("BenzeneDeposits");
+                });
+
+            modelBuilder.Entity("mobileBackendsoftFount.Models.oilAccountBalance", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<decimal>("BalanceAmount")
+                        .HasColumnType("numeric");
+
+                    b.Property<DateTime>("DateTime")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("oilAccountBalances");
+                });
+
+            modelBuilder.Entity("mobileBackendsoftFount.Models.oilAdjustment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<float>("amount")
+                        .HasColumnType("real");
+
+                    b.Property<string>("comment")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("date")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<bool>("increase")
+                        .HasColumnType("boolean");
+
+                    b.Property<int>("monthlyId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("date")
+                        .IsUnique();
+
+                    b.ToTable("OilAdjustments");
+                });
+
+            modelBuilder.Entity("mobileBackendsoftFount.Models.oilDeposit", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("OilBalanceId")
+                        .HasColumnType("integer");
+
+                    b.Property<float>("amount")
+                        .HasColumnType("real");
+
+                    b.Property<string>("comment")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("date")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<int>("monthlyId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OilBalanceId");
+
+                    b.HasIndex("date")
+                        .IsUnique();
+
+                    b.ToTable("OilDeposits");
+                });
+
+            modelBuilder.Entity("CategorySubCategory", b =>
+                {
+                    b.HasOne("mobileBackendsoftFount.Models.Category", null)
+                        .WithMany()
+                        .HasForeignKey("CategoriesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("mobileBackendsoftFount.Models.SubCategory", null)
+                        .WithMany()
+                        .HasForeignKey("SubCategoriesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("mobileBackendsoftFount.Models.AccountInvestigationMember", b =>
+                {
+                    b.HasOne("mobileBackendsoftFount.Models.AccountInvestigationReport", null)
+                        .WithMany("AccountInvestigationMembers")
+                        .HasForeignKey("AccountInvestigationReportId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
             modelBuilder.Entity("mobileBackendsoftFount.Models.BenzeneGunCounter", b =>
                 {
                     b.HasOne("mobileBackendsoftFount.Models.SellingReceipt", null)
@@ -468,6 +1378,35 @@ namespace mobileBackendsoftFount.Migrations
                     b.Navigation("BenzeneBuyReceipt");
                 });
 
+            modelBuilder.Entity("mobileBackendsoftFount.Models.ClientService", b =>
+                {
+                    b.HasOne("mobileBackendsoftFount.Models.ServiceSellProduct", null)
+                        .WithMany("ClientServices")
+                        .HasForeignKey("ServiceSellProductId");
+                });
+
+            modelBuilder.Entity("mobileBackendsoftFount.Models.Expense", b =>
+                {
+                    b.HasOne("mobileBackendsoftFount.Models.ExpenseCategory", "ExpenseCategory")
+                        .WithMany("Expenses")
+                        .HasForeignKey("ExpenseCategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ExpenseCategory");
+                });
+
+            modelBuilder.Entity("mobileBackendsoftFount.Models.MinistryOfSupplyLetterMember", b =>
+                {
+                    b.HasOne("mobileBackendsoftFount.Models.MinistryOfSupplyLetter", "MinistryOfSupplyLetter")
+                        .WithMany("Members")
+                        .HasForeignKey("MinistryOfSupplyLetterId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("MinistryOfSupplyLetter");
+                });
+
             modelBuilder.Entity("mobileBackendsoftFount.Models.Oil", b =>
                 {
                     b.HasOne("mobileBackendsoftFount.Models.OilSupplier", "Supplier")
@@ -479,6 +1418,17 @@ namespace mobileBackendsoftFount.Migrations
                     b.Navigation("Supplier");
                 });
 
+            modelBuilder.Entity("mobileBackendsoftFount.Models.OilBalanceProduct", b =>
+                {
+                    b.HasOne("mobileBackendsoftFount.Models.OilStorageBalanceReport", "OilStorageBalanceReport")
+                        .WithMany("Products")
+                        .HasForeignKey("OilStorageBalanceReportId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("OilStorageBalanceReport");
+                });
+
             modelBuilder.Entity("mobileBackendsoftFount.Models.OilBuyProduct", b =>
                 {
                     b.HasOne("mobileBackendsoftFount.Models.OilBuyReceipt", null)
@@ -486,35 +1436,138 @@ namespace mobileBackendsoftFount.Migrations
                         .HasForeignKey("OilBuyReceiptId");
                 });
 
+            modelBuilder.Entity("mobileBackendsoftFount.Models.OilBuyReceipt", b =>
+                {
+                    b.HasOne("mobileBackendsoftFount.Models.oilAccountBalance", "OilAccountBalance")
+                        .WithMany()
+                        .HasForeignKey("OilAccountBalanceId");
+
+                    b.Navigation("OilAccountBalance");
+                });
+
             modelBuilder.Entity("mobileBackendsoftFount.Models.OilSellProduct", b =>
                 {
-                    b.HasOne("mobileBackendsoftFount.Models.OilSellRecipe", null)
+                    b.HasOne("mobileBackendsoftFount.Models.OilSellRecipe", "OilSellRecipe")
                         .WithMany("OilSellProducts")
-                        .HasForeignKey("OilSellRecipeId");
+                        .HasForeignKey("OilSellRecipeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("mobileBackendsoftFount.Models.OilSupplier", "OilSupplier")
                         .WithMany()
                         .HasForeignKey("OilSupplierId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("OilSellRecipe");
 
                     b.Navigation("OilSupplier");
                 });
 
-            modelBuilder.Entity("mobileBackendsoftFount.Models.OilSellRecipe", b =>
+            modelBuilder.Entity("mobileBackendsoftFount.Models.ReportTable1", b =>
                 {
-                    b.HasOne("mobileBackendsoftFount.Models.OilSupplier", "OilSupplier")
-                        .WithMany()
-                        .HasForeignKey("OilSupplierId")
+                    b.HasOne("mobileBackendsoftFount.Models.DisabilityAndIncreaseReport", "DisabilityAndIncreaseReport")
+                        .WithMany("Table1")
+                        .HasForeignKey("DisabilityAndIncreaseReportId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("OilSupplier");
+                    b.Navigation("DisabilityAndIncreaseReport");
+                });
+
+            modelBuilder.Entity("mobileBackendsoftFount.Models.ReportTable2", b =>
+                {
+                    b.HasOne("mobileBackendsoftFount.Models.DisabilityAndIncreaseReport", "DisabilityAndIncreaseReport")
+                        .WithMany("Table2")
+                        .HasForeignKey("DisabilityAndIncreaseReportId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("DisabilityAndIncreaseReport");
+                });
+
+            modelBuilder.Entity("mobileBackendsoftFount.Models.ReportTable3", b =>
+                {
+                    b.HasOne("mobileBackendsoftFount.Models.DisabilityAndIncreaseReport", "DisabilityAndIncreaseReport")
+                        .WithMany("Table3")
+                        .HasForeignKey("DisabilityAndIncreaseReportId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("DisabilityAndIncreaseReport");
+                });
+
+            modelBuilder.Entity("mobileBackendsoftFount.Models.ReportTable4", b =>
+                {
+                    b.HasOne("mobileBackendsoftFount.Models.DisabilityAndIncreaseReport", "DisabilityAndIncreaseReport")
+                        .WithMany("Table4")
+                        .HasForeignKey("DisabilityAndIncreaseReportId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("DisabilityAndIncreaseReport");
+                });
+
+            modelBuilder.Entity("mobileBackendsoftFount.Models.Revenue", b =>
+                {
+                    b.HasOne("mobileBackendsoftFount.Models.RevenueCategory", "RevenueCategory")
+                        .WithMany("Revenues")
+                        .HasForeignKey("RevenueCategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("RevenueCategory");
+                });
+
+            modelBuilder.Entity("mobileBackendsoftFount.Models.ServiceSellProduct", b =>
+                {
+                    b.HasOne("mobileBackendsoftFount.Models.ServiceSellReceipt", "ServiceSellReceipt")
+                        .WithMany("ServiceSellProducts")
+                        .HasForeignKey("ServiceSellReceiptId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ServiceSellReceipt");
+                });
+
+            modelBuilder.Entity("mobileBackendsoftFount.Models.oilDeposit", b =>
+                {
+                    b.HasOne("mobileBackendsoftFount.Models.oilAccountBalance", "OilBalance")
+                        .WithMany()
+                        .HasForeignKey("OilBalanceId");
+
+                    b.Navigation("OilBalance");
+                });
+
+            modelBuilder.Entity("mobileBackendsoftFount.Models.AccountInvestigationReport", b =>
+                {
+                    b.Navigation("AccountInvestigationMembers");
                 });
 
             modelBuilder.Entity("mobileBackendsoftFount.Models.BenzeneBuyReceipt", b =>
                 {
                     b.Navigation("Products");
+                });
+
+            modelBuilder.Entity("mobileBackendsoftFount.Models.DisabilityAndIncreaseReport", b =>
+                {
+                    b.Navigation("Table1");
+
+                    b.Navigation("Table2");
+
+                    b.Navigation("Table3");
+
+                    b.Navigation("Table4");
+                });
+
+            modelBuilder.Entity("mobileBackendsoftFount.Models.ExpenseCategory", b =>
+                {
+                    b.Navigation("Expenses");
+                });
+
+            modelBuilder.Entity("mobileBackendsoftFount.Models.MinistryOfSupplyLetter", b =>
+                {
+                    b.Navigation("Members");
                 });
 
             modelBuilder.Entity("mobileBackendsoftFount.Models.OilBuyReceipt", b =>
@@ -527,14 +1580,34 @@ namespace mobileBackendsoftFount.Migrations
                     b.Navigation("OilSellProducts");
                 });
 
+            modelBuilder.Entity("mobileBackendsoftFount.Models.OilStorageBalanceReport", b =>
+                {
+                    b.Navigation("Products");
+                });
+
             modelBuilder.Entity("mobileBackendsoftFount.Models.OilSupplier", b =>
                 {
                     b.Navigation("Oils");
                 });
 
+            modelBuilder.Entity("mobileBackendsoftFount.Models.RevenueCategory", b =>
+                {
+                    b.Navigation("Revenues");
+                });
+
             modelBuilder.Entity("mobileBackendsoftFount.Models.SellingReceipt", b =>
                 {
                     b.Navigation("BenzeneGunCounters");
+                });
+
+            modelBuilder.Entity("mobileBackendsoftFount.Models.ServiceSellProduct", b =>
+                {
+                    b.Navigation("ClientServices");
+                });
+
+            modelBuilder.Entity("mobileBackendsoftFount.Models.ServiceSellReceipt", b =>
+                {
+                    b.Navigation("ServiceSellProducts");
                 });
 #pragma warning restore 612, 618
         }
